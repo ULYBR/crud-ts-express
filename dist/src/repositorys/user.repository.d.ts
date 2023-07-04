@@ -1,4 +1,5 @@
-export declare const createUser: (data: any) => Promise<{
+import User from "../types/user.types";
+export declare const createUser: (data: User) => Promise<{
     id: string;
     name: string | null;
     email: string;
@@ -19,7 +20,7 @@ export declare const getById: (id: string) => Promise<{
     createdAt: Date;
     updatedAt: Date;
 } | null>;
-export declare const updateUser: (id: string, data: any) => Promise<{
+export declare const updateUser: (id: string, data: User) => Promise<{
     id: string;
     name: string | null;
     email: string;

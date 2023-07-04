@@ -1,3 +1,2 @@
-import { Application } from "express";
-declare const userRoutes: (app: Application) => void;
+declare const userRoutes: (app: any) => void;
 export default userRoutes;

@@ -1,6 +1,7 @@
 import { prisma } from "../services/services";
+import User from "../types/user.types";
 
-export const createUser = async (data: any) => {
+export const createUser = async (data: User) => {
   const user = await prisma.user.create({
     data,
     select: {
@@ -51,7 +52,7 @@ export const getById = async (id: string) => {
 }
 
 
-export const updateUser = async (id: string, data: any) => {
+export const updateUser = async (id: string, data: User) => {
   const user = await prisma.user.update({
     where: {
       id
