@@ -8,4 +8,3 @@ const routes = (app) => {
     (0, user_routes_1.default)(app);
 };
 exports.default = routes;
-//# sourceMappingURL=index.js.map

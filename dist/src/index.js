@@ -14,4 +14,3 @@ app.use(express_1.default.json());
 (0, routes_1.default)(app);
 app.listen(3001);
 console.log("serve on ✅");
-//# sourceMappingURL=index.js.map

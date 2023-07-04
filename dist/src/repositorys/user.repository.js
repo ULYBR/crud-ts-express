@@ -9,13 +9,78 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUser = void 0;
+exports.deleteUser = exports.updateUser = exports.getById = exports.getAll = exports.createUser = void 0;
 const services_1 = require("../services/services");
 const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield services_1.prisma.user.create({
         data,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            password: false,
+            createdAt: true,
+            updatedAt: true
+        }
     });
     return user;
 });
 exports.createUser = createUser;
-//# sourceMappingURL=user.repository.js.map
+const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield services_1.prisma.user.findMany({
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            password: false,
+            createdAt: true,
+            updatedAt: true
+        }
+    });
+    return users;
+});
+exports.getAll = getAll;
+const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield services_1.prisma.user.findUnique({
+        where: {
+            id
+        },
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            password: false,
+            createdAt: true,
+            updatedAt: true
+        }
+    });
+    return user;
+});
+exports.getById = getById;
+const updateUser = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield services_1.prisma.user.update({
+        where: {
+            id
+        },
+        data,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            password: false,
+            createdAt: true,
+            updatedAt: true
+        },
+    });
+    return user;
+});
+exports.updateUser = updateUser;
+const deleteUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    yield services_1.prisma.user.delete({
+        where: {
+            id
+        }
+    });
+    return;
+});
+exports.deleteUser = deleteUser;

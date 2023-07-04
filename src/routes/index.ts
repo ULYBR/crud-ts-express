@@ -1,5 +1,6 @@
-import userRoutes from "./user.routes";
 import { Application } from "express";
+import userRoutes from "./user.routes";
+
 
 
 const routes = (app: Application) => {

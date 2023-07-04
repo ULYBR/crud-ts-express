@@ -3,21 +3,16 @@
     "files": true
   },
   "compilerOptions": {
-    "sourceMap": true,
     "inlineSources": false,
     "strict": true,
     "target": "es2016",
     "module": "commonjs",
-    "lib": [
-      "es6"
-    ],
     "declaration": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "removeComments": false,
-    "allowJs": true,
     "rootDir": "./",
     "outDir": "dist"
   },

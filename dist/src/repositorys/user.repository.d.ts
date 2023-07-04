@@ -1,8 +1,29 @@
-export declare const createUser: (data: any) => Promise<import("@prisma/client/runtime").GetResult<{
-    id: number;
+export declare const createUser: (data: any) => Promise<{
+    id: string;
     name: string | null;
     email: string;
-    role: import(".prisma/client").Role;
     createdAt: Date;
     updatedAt: Date;
-}, unknown> & {}>;
+}>;
+export declare const getAll: () => Promise<{
+    id: string;
+    name: string | null;
+    email: string;
+    createdAt: Date;
+    updatedAt: Date;
+}[]>;
+export declare const getById: (id: string) => Promise<{
+    id: string;
+    name: string | null;
+    email: string;
+    createdAt: Date;
+    updatedAt: Date;
+} | null>;
+export declare const updateUser: (id: string, data: any) => Promise<{
+    id: string;
+    name: string | null;
+    email: string;
+    createdAt: Date;
+    updatedAt: Date;
+}>;
+export declare const deleteUser: (id: string) => Promise<void>;

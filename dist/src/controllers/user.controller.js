@@ -8,11 +8,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.create = void 0;
+exports.remove = exports.update = exports.getId = exports.get = exports.create = void 0;
+const bcrypt_1 = __importDefault(require("bcrypt"));
+const user_validation_1 = require("../validations/user.validation");
 const user_repository_1 = require("../repositorys/user.repository");
 const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        yield user_validation_1.userValidation.validate(req.body);
+        const hashPassword = yield bcrypt_1.default.hash(req.body.password, 10);
+        req.body.password = hashPassword;
         const user = yield (0, user_repository_1.createUser)(req.body);
         res.status(200).send(user);
     }
@@ -21,4 +29,43 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.create = create;
-//# sourceMappingURL=user.controller.js.map
+const get = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const users = yield (0, user_repository_1.getAll)();
+        res.status(200).send(users);
+    }
+    catch (e) {
+        res.status(400).send(e);
+    }
+});
+exports.get = get;
+const getId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield (0, user_repository_1.getById)(req.params.id);
+        res.status(200).send(user);
+    }
+    catch (e) {
+        res.status(400).send(e);
+    }
+});
+exports.getId = getId;
+const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield (0, user_repository_1.updateUser)(req.params.id, req.body);
+        res.status(200).send(user);
+    }
+    catch (e) {
+        res.status(400).send(e);
+    }
+});
+exports.update = update;
+const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield (0, user_repository_1.deleteUser)(req.params.id);
+        res.status(200).send();
+    }
+    catch (e) {
+        res.status(400).send(e);
+    }
+});
+exports.remove = remove;
