@@ -12,6 +12,7 @@ export declare const getAll: () => Promise<{
     email: string;
     createdAt: Date;
     updatedAt: Date;
+    role: import(".prisma/client").Role;
 }[]>;
 export declare const getById: (id: string) => Promise<{
     id: string;

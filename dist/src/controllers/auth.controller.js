@@ -40,7 +40,7 @@ const authenticate = (req, res) => __awaiter(void 0, void 0, void 0, function* (
                 email,
                 name: user.name
             }, String(process.env.TOKEN_KEY), {
-                expiresIn: "3h"
+                expiresIn: "6h"
             });
             return res.status(200).send({ token });
         }

@@ -34,7 +34,8 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             email: true,
             password: false,
             createdAt: true,
-            updatedAt: true
+            updatedAt: true,
+            role: true,
         }
     });
     return users;

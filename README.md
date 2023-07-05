@@ -1,6 +1,6 @@
-# API REST utilizando Node.js, Express, Docker, PostgreSQL e Prisma
+# API REST utilizando Node.js, Express, PostgreSQL e Prisma
 
-Este é um exemplo de arquivo README para uma API RESTful desenvolvida com Node.js, utilizando o framework Express, Docker para facilitar o ambiente de desenvolvimento, PostgreSQL como banco de dados e Prisma como ORM (Object-Relational Mapping).
+Este é um exemplo de arquivo README para uma API RESTful desenvolvida com Node.js, utilizando o framework Express, PostgreSQL como banco de dados no Supabase e Prisma como ORM (Object-Relational Mapping).
 
 ## Requisitos
 
@@ -9,8 +9,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 - Node.js (versão 12 ou superior)
 - Yarn
 - Prisma
-- Docker Desktop
-- Docker Compose
+- Supabase
 
 ## Configuração do ambiente
 
@@ -26,36 +25,34 @@ git clone https://gitlab.com/tegrus/learning-isc-team/ulysses/crud-ts.git
 ```bash
 yarn build
 ```
+3. Crie uma conta no supabase e vai em database .
 
-3. Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo básico de configuração:
+4. Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo básico de configuração:
 
 ```plaintext thema = dracula
 # Postgres database config variables:
-POSTGRES_USER= usuário
-POSTGRES_PASSWORD= senha
-POSTGRES_DB= nome-do-banco
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=//senha do seu db do supabase
+POSTGRES_DB=// nome do seu db do supabase
 
 # Config database:
-DB_HOST= localhost
 DB_PORT=5432
 DB_SCHEMA=public
 
 # Database connection:
-DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:${DB_PORT}/${POSTGRES_DB}?schema=${DB_SCHEMA}
+DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_DB}:${DB_PORT}/postgres?schema=${DB_SCHEMA}
 
-# jwt token
-TOKEN_KEY = "sua senha para authenticar"
+
+
+# token que expira após um tempo então ele vai bater e ver se o token concide com do email e senha do usuário.
+TOKEN_KEY = "//Token do hash de email e senha do metodo post /login"
+
 
 ```
 
-Certifique-se de substituir `usuario`, `senha`, `localhost`, `5432` e `nome-do-banco` pelas suas configurações locais do PostgreSQL.
+Certifique-se de substituir `usuario`, `senha`, `5432` e `nome-do-banco` pelas suas configurações locais do PostgreSQL.
 
 
-4. Inicie o contêiner do PostgreSQL utilizando o Docker Compose:
-
-```bash
-docker-compose up -d
-```
 ## Migração do banco de dados
 
 Este projeto utiliza o Prisma para migração do banco de dados. Certifique-se de ter configurado corretamente a conexão com o banco de dados no arquivo `.env`. Em seguida, execute o seguinte comando para aplicar as migrações:
@@ -71,6 +68,7 @@ Isso irá criar as tabelas e as relações necessárias no banco de dados.
 Após configurar o ambiente e aplicar as migrações, você pode iniciar a aplicação usando o seguinte comando:
 
 ```bash
+yarn build
 yarn dev
 ```
 

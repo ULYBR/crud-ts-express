@@ -4,7 +4,7 @@ const user_controller_1 = require("../controllers/user.controller");
 const auth_1 = require("../middlewares/auth");
 const userRoutes = (app) => {
     app.post("/user", user_controller_1.create);
-    app.get("/user", auth_1.verifyToken, user_controller_1.get);
+    app.get("/user", user_controller_1.get);
     app.get("/user/:id", auth_1.verifyToken, user_controller_1.getId);
     app.put("/user/:id", auth_1.verifyToken, user_controller_1.update);
     app.delete("/user/:id", auth_1.verifyToken, user_controller_1.remove);

@@ -25,7 +25,8 @@ export const getAll = async () => {
       email: true,
       password: false,
       createdAt: true,
-      updatedAt: true
+      updatedAt: true,
+      role: true,
 
     }
   })
