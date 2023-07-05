@@ -27,13 +27,7 @@ git clone https://gitlab.com/tegrus/learning-isc-team/ulysses/crud-ts.git
 yarn build
 ```
 
-3. Inicie o contêiner do PostgreSQL utilizando o Docker Compose:
-
-```bash
-docker-compose up -d
-```
-
-4. Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo básico de configuração:
+3. Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo básico de configuração:
 
 ```plaintext thema = dracula
 # Postgres database config variables:
@@ -56,6 +50,12 @@ TOKEN_KEY = "sua senha para authenticar"
 
 Certifique-se de substituir `usuario`, `senha`, `localhost`, `5432` e `nome-do-banco` pelas suas configurações locais do PostgreSQL.
 
+
+4. Inicie o contêiner do PostgreSQL utilizando o Docker Compose:
+
+```bash
+docker-compose up -d
+```
 ## Migração do banco de dados
 
 Este projeto utiliza o Prisma para migração do banco de dados. Certifique-se de ter configurado corretamente a conexão com o banco de dados no arquivo `.env`. Em seguida, execute o seguinte comando para aplicar as migrações:
@@ -80,11 +80,12 @@ Isso irá iniciar o servidor Express e você poderá acessar a API REST em `http
 
 Aqui estão alguns exemplos de endpoints que você pode utilizar nesta API:
 
-- `GET /users`: Retorna uma lista de usuários.
-- `GET /users/:id`: Retorna um usuário específico com base no ID fornecido.
-- `POST /users`: Cria um novo usuário.
-- `PUT /users/:id`: Atualiza um usuário existente com base no ID fornecido.
-- `DELETE /users/:id`: Remove um usuário específico com base no ID fornecido.
+- `GET /user`: Retorna uma lista de usuários.
+- `GET /user/:id`: Retorna um usuário específico com base no ID fornecido.
+- `POST /user`: Cria um novo usuário.
+- `PUT /user/:id`: Atualiza um usuário existente com base no ID fornecido.
+- `DELETE /user/:id`: Remove um usuário específico com base no ID fornecido.
+- `POST /login`: Acessar a pagina de login com email e senha.
 
 Certifique-se de consultar a documentação do seu código-fonte para obter mais detalhes sobre os endpoints disponíveis.
 
