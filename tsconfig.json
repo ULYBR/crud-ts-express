@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "removeComments": false,
     "rootDir": "./",
-    "outDir": "dist"
+    "outDir": "dist",
   },
   "include": [
     "src/**/*"

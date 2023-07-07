@@ -44,8 +44,8 @@ DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_DB}:$
 
 
 
-# token que expira após um tempo então ele vai bater e ver se o token concide com do email e senha do usuário.
-TOKEN_KEY = "//Token do hash de email e senha do metodo post /login"
+# token para descriptografar o jwt do user.
+TOKEN_KEY = "//Defina a senha ."
 
 
 ```
@@ -59,6 +59,9 @@ Este projeto utiliza o Prisma para migração do banco de dados. Certifique-se d
 
 ```bash
 npx prisma migrate dev --name init
+
+#subir as alterações do banco.
+npx prisma db push
 ```
 
 Isso irá criar as tabelas e as relações necessárias no banco de dados.
@@ -84,7 +87,17 @@ Aqui estão alguns exemplos de endpoints que você pode utilizar nesta API:
 - `PUT /user/:id`: Atualiza um usuário existente com base no ID fornecido.
 - `DELETE /user/:id`: Remove um usuário específico com base no ID fornecido.
 - `POST /login`: Acessar a pagina de login com email e senha.
+- `GET /agency`: Retorna uma lista de agência.
+- `GET /agency/:id`: Retorna um agência específico com base no ID fornecido.
+- `POST /agency`: Cria um novo agência.
+- `PUT /agency/:id`: Atualiza um agência existente com base no ID fornecido.
+- `DELETE /agency/:id`: Remove um agência específico com base no ID fornecido.
 
+
+# Uso dos endpoints 
+
+Como padrão tem que criar um usuário e pegar o token que retorna no endpoit `POST /login` com corpo json sendo Email e senha do usuário.
+após isso poderar adcionar `N User para Agência e 1 Agência para User.
 Certifique-se de consultar a documentação do seu código-fonte para obter mais detalhes sobre os endpoints disponíveis.
 
 ## Contribuindo

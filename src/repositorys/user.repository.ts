@@ -1,6 +1,7 @@
 import { prisma } from "../services/services";
 import User from "../types/user.types";
 
+
 export const createUser = async (data: User) => {
   const user = await prisma.user.create({
     data,
@@ -10,7 +11,9 @@ export const createUser = async (data: User) => {
       email: true,
       password: false,
       createdAt: true,
-      updatedAt: true
+      updatedAt: true,
+      relationship:true
+
     }
   });
   return user;
@@ -18,6 +21,7 @@ export const createUser = async (data: User) => {
 };
 
 export const getAll = async () => {
+  
   const users = await prisma.user.findMany({
     select: {
       id: true,
@@ -27,6 +31,7 @@ export const getAll = async () => {
       createdAt: true,
       updatedAt: true,
       role: true,
+      relationship:true
 
     }
   })
@@ -45,7 +50,8 @@ export const getById = async (id: string) => {
       email: true,
       password: false,
       createdAt: true,
-      updatedAt: true
+      updatedAt: true,
+      relationship:true
 
     }
   });
@@ -65,16 +71,17 @@ export const updateUser = async (id: string, data: User) => {
       email: true,
       password: false,
       createdAt: true,
-      updatedAt: true
+      updatedAt: true, 
+  
     },
   });
   return user;
 
 }
 
-export const deleteUser =async (id: string) =>{
+export const deleteUser = async (id: string) => {
   await prisma.user.delete({
-    where:{
+    where: {
       id
     }
   });

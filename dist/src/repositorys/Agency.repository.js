@@ -9,60 +9,49 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.getById = exports.getAll = exports.createUser = void 0;
+exports.deleteAgency = exports.updateAgency = exports.getById = exports.getAll = exports.createAgency = void 0;
 const services_1 = require("../services/services");
-const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield services_1.prisma.user.create({
+const createAgency = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    const agency = yield services_1.prisma.agency.create({
         data,
         select: {
             id: true,
             name: true,
-            email: true,
-            password: false,
-            createdAt: true,
-            updatedAt: true,
-            relationship: true
+            cnpj: true
         }
     });
-    return user;
+    return agency;
 });
-exports.createUser = createUser;
+exports.createAgency = createAgency;
 const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
-    const users = yield services_1.prisma.user.findMany({
+    const agencys = yield services_1.prisma.agency.findMany({
         select: {
             id: true,
             name: true,
-            email: true,
-            password: false,
-            createdAt: true,
-            updatedAt: true,
-            role: true,
+            cnpj: true,
             relationship: true
         }
     });
-    return users;
+    return agencys;
 });
 exports.getAll = getAll;
 const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield services_1.prisma.user.findUnique({
+    const agency = yield services_1.prisma.agency.findUnique({
         where: {
             id
         },
         select: {
             id: true,
             name: true,
-            email: true,
-            password: false,
-            createdAt: true,
-            updatedAt: true,
+            cnpj: true,
             relationship: true
         }
     });
-    return user;
+    return agency;
 });
 exports.getById = getById;
-const updateUser = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield services_1.prisma.user.update({
+const updateAgency = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+    const agency = yield services_1.prisma.agency.update({
         where: {
             id
         },
@@ -70,21 +59,18 @@ const updateUser = (id, data) => __awaiter(void 0, void 0, void 0, function* () 
         select: {
             id: true,
             name: true,
-            email: true,
-            password: false,
-            createdAt: true,
-            updatedAt: true,
+            cnpj: true,
         },
     });
-    return user;
+    return agency;
 });
-exports.updateUser = updateUser;
-const deleteUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    yield services_1.prisma.user.delete({
+exports.updateAgency = updateAgency;
+const deleteAgency = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    yield services_1.prisma.agency.delete({
         where: {
             id
         }
     });
     return;
 });
-exports.deleteUser = deleteUser;
+exports.deleteAgency = deleteAgency;

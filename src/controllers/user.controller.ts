@@ -16,11 +16,11 @@ export const create = async (req: Request, res: Response) => {
   } catch (e) {
     res.status(400).send(e);
   }
-
 };
 
 export const get = async (req: Request, res: Response) => {
   try {
+    
     const users = await getAll();
     res.status(200).send(users);
 
