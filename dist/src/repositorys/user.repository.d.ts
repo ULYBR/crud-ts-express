@@ -5,10 +5,10 @@ export declare const createUser: (data: User) => Promise<{
     email: string;
     createdAt: Date;
     updatedAt: Date;
-    relationship: (import("@prisma/client/runtime").GetResult<{
+    Agencys: (import("@prisma/client/runtime").GetResult<{
         id: string;
-        userId: string;
-        agencyId: string;
+        name: string;
+        cnpj: string;
     }, unknown> & {})[];
 }>;
 export declare const getAll: () => Promise<{
@@ -18,10 +18,10 @@ export declare const getAll: () => Promise<{
     createdAt: Date;
     updatedAt: Date;
     role: import(".prisma/client").Role;
-    relationship: (import("@prisma/client/runtime").GetResult<{
+    Agencys: (import("@prisma/client/runtime").GetResult<{
         id: string;
-        userId: string;
-        agencyId: string;
+        name: string;
+        cnpj: string;
     }, unknown> & {})[];
 }[]>;
 export declare const getById: (id: string) => Promise<{
@@ -30,10 +30,10 @@ export declare const getById: (id: string) => Promise<{
     email: string;
     createdAt: Date;
     updatedAt: Date;
-    relationship: (import("@prisma/client/runtime").GetResult<{
+    Agencys: (import("@prisma/client/runtime").GetResult<{
         id: string;
-        userId: string;
-        agencyId: string;
+        name: string;
+        cnpj: string;
     }, unknown> & {})[];
 } | null>;
 export declare const updateUser: (id: string, data: User) => Promise<{
@@ -42,5 +42,10 @@ export declare const updateUser: (id: string, data: User) => Promise<{
     email: string;
     createdAt: Date;
     updatedAt: Date;
+    Agencys: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        cnpj: string;
+    }, unknown> & {})[];
 }>;
 export declare const deleteUser: (id: string) => Promise<void>;

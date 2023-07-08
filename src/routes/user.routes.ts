@@ -3,11 +3,11 @@ import { create, get, getId, remove, update } from "../controllers/user.controll
 import { verifyToken } from "../middlewares/auth";
 
 const userRoutes = (app: Application) => {
-  app.post("/user", create);
-  app.get("/user", get);
-  app.get("/user/:id", verifyToken, getId);
-  app.put("/user/:id", verifyToken, update);
-  app.delete("/user/:id", verifyToken, remove);
+  app.post("/users", create);
+  app.get("/users", get);
+  app.get("/users/:id", verifyToken, getId);
+  app.put("/users/:id",  update);
+  app.delete("/users/:id", verifyToken, remove);
 }
 
 export default userRoutes;

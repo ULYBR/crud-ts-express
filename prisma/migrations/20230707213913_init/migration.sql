@@ -15,15 +15,6 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "UserAgencyMap" (
-    "id" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
-    "agencyId" TEXT NOT NULL,
-
-    CONSTRAINT "UserAgencyMap_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "Agency" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
@@ -32,14 +23,26 @@ CREATE TABLE "Agency" (
     CONSTRAINT "Agency_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "_AgencyToUser" (
+    "A" TEXT NOT NULL,
+    "B" TEXT NOT NULL
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Agency_cnpj_key" ON "Agency"("cnpj");
 
--- AddForeignKey
-ALTER TABLE "UserAgencyMap" ADD CONSTRAINT "UserAgencyMap_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+-- CreateIndex
+CREATE UNIQUE INDEX "_AgencyToUser_AB_unique" ON "_AgencyToUser"("A", "B");
+
+-- CreateIndex
+CREATE INDEX "_AgencyToUser_B_index" ON "_AgencyToUser"("B");
 
 -- AddForeignKey
-ALTER TABLE "UserAgencyMap" ADD CONSTRAINT "UserAgencyMap_agencyId_fkey" FOREIGN KEY ("agencyId") REFERENCES "Agency"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "_AgencyToUser" ADD CONSTRAINT "_AgencyToUser_A_fkey" FOREIGN KEY ("A") REFERENCES "Agency"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "_AgencyToUser" ADD CONSTRAINT "_AgencyToUser_B_fkey" FOREIGN KEY ("B") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

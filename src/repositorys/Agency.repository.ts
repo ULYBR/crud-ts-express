@@ -1,6 +1,6 @@
 import { prisma } from "../services/services";
 import Agency from "../types/angency.types";
-import { userValidation } from "../validations/user.validation";
+
 
 
 export const createAgency = async (data: Agency) => {
@@ -14,6 +14,12 @@ export const createAgency = async (data: Agency) => {
 
 export const getAll = async () => {
   const agencys = await prisma.agency.findMany({
+    select:{
+      id:true,
+      name:true,
+      cnpj:true,
+      users:true,
+    }
     
   })
   return agencys;
@@ -25,6 +31,13 @@ export const getById = async (id: string) => {
     where: {
       id
     },
+    select: {
+      id: true,
+      name: true,
+      cnpj: true,
+      users: true,
+    }
+
     
   });
   return agency;
@@ -41,6 +54,7 @@ export const updateAgency = async (id: string, data: Agency) => {
       id: true,
       name: true,
       cnpj:true,
+      users:true
     },
   });
   return agency;

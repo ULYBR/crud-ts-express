@@ -2,6 +2,7 @@
 import { agencyValidation } from "../validations/agency.validation"
 import { createAgency, getAll, getById, updateAgency, deleteAgency } from "../repositorys/Agency.repository";
 import { Request, Response } from "express";
+import { prisma } from "../services/services";
 
 
 

@@ -4,6 +4,6 @@ export type User = {
     email: string;
     password: string;
     role: Role;
-    agencyId: string;
+    Agencys: object;
 };
 export default User;

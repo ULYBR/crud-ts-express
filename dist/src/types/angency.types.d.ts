@@ -4,5 +4,6 @@ export type Agency = {
     user: User;
     name: string;
     cnpj: string;
+    Users: object;
 };
 export default Agency;

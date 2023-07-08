@@ -14,11 +14,6 @@ const services_1 = require("../services/services");
 const createAgency = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const agency = yield services_1.prisma.agency.create({
         data,
-        select: {
-            id: true,
-            name: true,
-            cnpj: true
-        }
     });
     return agency;
 });
@@ -29,7 +24,7 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             id: true,
             name: true,
             cnpj: true,
-            relationship: true
+            Users: true,
         }
     });
     return agencys;
@@ -40,12 +35,6 @@ const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
         where: {
             id
         },
-        select: {
-            id: true,
-            name: true,
-            cnpj: true,
-            relationship: true
-        }
     });
     return agency;
 });
@@ -60,6 +49,7 @@ const updateAgency = (id, data) => __awaiter(void 0, void 0, void 0, function* (
             id: true,
             name: true,
             cnpj: true,
+            Users: true
         },
     });
     return agency;

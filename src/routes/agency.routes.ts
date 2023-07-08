@@ -3,11 +3,11 @@ import { create, get, getId, remove, update } from "../controllers/agency.contro
 import { verifyToken } from "../middlewares/auth";
 
 const agencyRoutes = (app: Application) => {
-  app.post("/agency", create);
-  app.get("/agency", verifyToken, get);
-  app.get("/agency/:id",verifyToken, getId);
-  app.put("/agency/:id",verifyToken,  update);
-  app.delete("/agency/:id",verifyToken, remove);
+  app.post("/agencys", create);
+  app.get("/agencys", verifyToken, get);
+  app.get("/agencys/:id",verifyToken, getId);
+  app.put("/agencys/:id",verifyToken,  update);
+  app.delete("/agencys/:id",verifyToken, remove);
 }
 
 export default agencyRoutes;

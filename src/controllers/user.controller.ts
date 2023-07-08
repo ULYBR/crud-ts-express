@@ -1,7 +1,8 @@
 import bcrypt from "bcrypt"
 import { userValidation } from "../validations/user.validation"
-import { createUser, getAll, getById, updateUser, deleteUser } from "../repositorys/user.repository";
+import { createUser, getAll, getById, updateUser, deleteUser, addAgencyToUser } from "../repositorys/user.repository";
 import { Request, Response } from "express";
+import { prisma } from "../services/services";
 
 
 
@@ -43,12 +44,15 @@ export const getId = async (req: Request, res: Response) => {
 
 }
 
+
+
 export const update = async (req: Request, res: Response) => {
 
   try {
     const user = await updateUser(req.params.id, req.body);
     res.status(200).send(user);
-
+    
+   
 
   } catch (e) {
     res.status(400).send(e);
@@ -67,4 +71,8 @@ export const remove = async (req: Request, res: Response) => {
 
   }
 
+}
+
+function next() {
+  throw new Error("Function not implemented.");
 }

@@ -1,5 +1,7 @@
+import { User } from "@prisma/client";
 import { prisma } from "../services/services";
-import User from "../types/user.types";
+
+
 
 
 export const createUser = async (data: User) => {
@@ -12,7 +14,7 @@ export const createUser = async (data: User) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      relationship:true
+      agencies: true
 
     }
   });
@@ -21,7 +23,7 @@ export const createUser = async (data: User) => {
 };
 
 export const getAll = async () => {
-  
+
   const users = await prisma.user.findMany({
     select: {
       id: true,
@@ -31,7 +33,7 @@ export const getAll = async () => {
       createdAt: true,
       updatedAt: true,
       role: true,
-      relationship:true
+      agencies:true
 
     }
   })
@@ -51,13 +53,35 @@ export const getById = async (id: string) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      relationship:true
+      agencies: true
 
     }
   });
   return user;
 }
 
+export const addAgencyToUser = async (userId: string, agencyId: string) => {
+    const user = await prisma.user.update({
+    where: {
+      id: userId
+    },
+    data: {
+      agencies: {
+        connect: { id: agencyId }
+      }
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      password: false,
+      createdAt: true,
+      updatedAt: true,
+      agencies: true
+    }
+  });
+  return user 
+}
 
 export const updateUser = async (id: string, data: User) => {
   const user = await prisma.user.update({
@@ -71,8 +95,9 @@ export const updateUser = async (id: string, data: User) => {
       email: true,
       password: false,
       createdAt: true,
-      updatedAt: true, 
-  
+      updatedAt: true,
+      agencies: true
+
     },
   });
   return user;

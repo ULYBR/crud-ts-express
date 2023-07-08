@@ -15,22 +15,16 @@ model User {
   role         Role            @default(USER)
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
-  relationship UserAgencyMap[]
+  agencies  Agency[]
 }
 
-model UserAgencyMap {
-  id       String @id @default(uuid())
-  userId   String
-  agencyId String
-  User     User   @relation(fields: [userId], references: [id])
-  Agency   Agency @relation(fields: [agencyId], references: [id])
-}
+
 
 model Agency {
   id           String          @id @default(uuid())
   name         String
   cnpj         String          @unique
-  relationship UserAgencyMap[] 
+  users User[] 
 }
 
 enum Role {
