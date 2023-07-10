@@ -13,7 +13,7 @@ export const createAgency = async (data: Agency) => {
 };
 
 export const getAll = async () => {
-  const agencys = await prisma.agency.findMany({
+  const agencies = await prisma.agency.findMany({
     select:{
       id:true,
       name:true,
@@ -22,7 +22,7 @@ export const getAll = async () => {
     }
     
   })
-  return agencys;
+  return agencies;
 }
 
 

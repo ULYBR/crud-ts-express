@@ -1,8 +1,8 @@
 
 import { agencyValidation } from "../validations/agency.validation"
-import { createAgency, getAll, getAgencyById, updateAgency, deleteAgency } from "../repositorys/Agency.repository";
+import { createAgency, getAll, getAgencyById, updateAgency, deleteAgency } from "../repositories/agency.repository";
 import { Request, Response } from "express";
-import { addUserToAgency } from "../UseCase/add-User-To-Agency";
+import { addUserToAgency } from "../Use-Case/add-User-To-Agency";
 
 
 
@@ -46,18 +46,18 @@ export const addUser = async (req: Request, res: Response) => {
   try {
     const data = req.body;
     const user = data.users.connect.id;
-   
-    const agency = await addUserToAgency(user,req.params.id);
+
+    const agency = await addUserToAgency(user, req.params.id);
     res.status(200).send(agency);
 
-  }catch(e:any){
+  } catch (e: any) {
     res.status(400).json({
-      message:e.message
+      message: e.message
     })
 
 
   }
-  
+
 }
 
 export const update = async (req: Request, res: Response) => {

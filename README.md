@@ -81,17 +81,19 @@ Isso irá iniciar o servidor Express e você poderá acessar a API REST em `http
 
 Aqui estão alguns exemplos de endpoints que você pode utilizar nesta API:
 
-- `GET /user`: Retorna uma lista de usuários.
-- `GET /user/:id`: Retorna um usuário específico com base no ID fornecido.
-- `POST /user`: Cria um novo usuário.
-- `PUT /user/:id`: Atualiza um usuário existente com base no ID fornecido.
-- `DELETE /user/:id`: Remove um usuário específico com base no ID fornecido.
+- `GET /users`: Retorna uma lista de usuários.
+- `GET /users/:id`: Retorna um usuário específico com base no ID fornecido.
+- `POST /users`: Cria um novo usuário.
+- `PUT /users/:id`: Atualiza um usuário existente com base no ID fornecido.
+- `PUT /users/add-agency/:id`: Adicionar uma agência a um usuário exitente com base no ID fornecido.
+- `DELETE /users/:id`: Remove um usuário específico com base no ID fornecido.
 - `POST /login`: Acessar a pagina de login com email e senha.
-- `GET /agency`: Retorna uma lista de agência.
-- `GET /agency/:id`: Retorna um agência específico com base no ID fornecido.
-- `POST /agency`: Cria um novo agência.
-- `PUT /agency/:id`: Atualiza um agência existente com base no ID fornecido.
-- `DELETE /agency/:id`: Remove um agência específico com base no ID fornecido.
+- `GET /agencies`: Retorna uma lista de agência.
+- `GET /agencies/:id`: Retorna um agência específico com base no ID fornecido.
+- `POST /agencies`: Cria um novo agência.
+- `PUT /agencies/:id`: Atualiza um agência existente com base no ID fornecido.
+- `PUT /agencies/add-user/:id`: Adicionar um usuário a agência existente com base no ID fornecido.
+- `DELETE /agencies/:id`: Remove um agência específico com base no ID fornecido.
 
 
 # Uso dos endpoints 

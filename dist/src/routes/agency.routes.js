@@ -7,6 +7,7 @@ const agencyRoutes = (app) => {
     app.get("/agencies", auth_1.verifyToken, agency_controller_1.get);
     app.get("/agencies/:id", auth_1.verifyToken, agency_controller_1.getId);
     app.put("/agencies/:id", auth_1.verifyToken, agency_controller_1.update);
+    app.put("/agencies/add-user/:id", auth_1.verifyToken, agency_controller_1.addUser);
     app.delete("/agencies/:id", auth_1.verifyToken, agency_controller_1.remove);
 };
 exports.default = agencyRoutes;

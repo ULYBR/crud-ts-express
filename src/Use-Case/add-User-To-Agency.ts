@@ -1,13 +1,15 @@
 
-
 import { Agency } from '@prisma/client';
-import { getAgencyById } from '../repositorys/Agency.repository';
-import { getById } from '../repositorys/user.repository';
+import { getAgencyById } from '../repositories/agency.repository';
+import { getById } from '../repositories/user.repository';
 import { prisma } from '../services/services';
 
 
 
 export const addUserToAgency = async (userId: string, agencyId: string): Promise<Agency> => {
+  const user = await getById(userId);
+
+  if (!user) throw new Error('User not found⛔');
 
   const agency = await getAgencyById(agencyId);
 
@@ -15,20 +17,18 @@ export const addUserToAgency = async (userId: string, agencyId: string): Promise
 
   if (!agency) throw new Error('Agency not found⛔');
 
-  const user = await getById(userId);
 
-  if (!user) throw new Error('User not found⛔');
- 
 
-  const hasAgencyInUser = await agency.users.every((user) => user.id === userId);
+  const hasUserInAgency = await agency.users.every((user) => user.id === userId);
   
 
 
-  if (hasAgencyInUser) throw new Error('Agency already registered in the User⛔');
+
+  if (hasUserInAgency) throw new Error('Agency already registered in the User⛔');
 
   const updatedAgency = await prisma.agency.update({
     where: {
-      id: userId,
+      id: agencyId,
     },
     data: {
       users: {

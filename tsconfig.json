@@ -15,5 +15,6 @@
     "removeComments": false,
     "rootDir": "./",
     "outDir": "dist",
+    
   }
 }

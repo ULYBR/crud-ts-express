@@ -9,30 +9,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addAgencyToUser = void 0;
-const Agency_repository_1 = require("../repositorys/Agency.repository");
-const user_repository_1 = require("../repositorys/user.repository");
+exports.addUserToAgency = void 0;
+const agency_repository_1 = require("../repositories/agency.repository");
+const user_repository_1 = require("../repositories/user.repository");
 const services_1 = require("../services/services");
-const addAgencyToUser = (userId, agencyId) => __awaiter(void 0, void 0, void 0, function* () {
+const addUserToAgency = (userId, agencyId) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield (0, user_repository_1.getById)(userId);
     if (!user)
-        throw new Error('Usuário não encontrado');
-    const agency = yield (0, Agency_repository_1.getAgencyById)(agencyId);
+        throw new Error('User not found⛔');
+    const agency = yield (0, agency_repository_1.getAgencyById)(agencyId);
     if (!agency)
-        throw new Error('Agência não encontrada');
-    const hasUserInAgency = yield user.agencies.every((agency) => agency.id === agencyId);
-    if (hasUserInAgency)
-        throw new Error('Usuário já cadastrado na agência');
-    const updatedUser = yield services_1.prisma.user.update({
+        throw new Error('Agency not found⛔');
+    const hasUserInAgency = yield agency.users.every((user) => user.id === userId);
+    if (!hasUserInAgency)
+        throw new Error('Agency already registered in the User⛔');
+    const updatedAgency = yield services_1.prisma.agency.update({
         where: {
-            id: userId,
+            id: agencyId,
         },
         data: {
-            agencies: {
-                connect: { id: agencyId },
+            users: {
+                connect: { id: userId },
             },
         },
     });
-    return updatedUser;
+    return updatedAgency;
 });
-exports.addAgencyToUser = addAgencyToUser;
+exports.addUserToAgency = addUserToAgency;

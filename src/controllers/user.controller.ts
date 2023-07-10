@@ -1,8 +1,9 @@
 import bcrypt from "bcrypt";
 import { userValidation } from "../validations/user.validation";
-import { createUser, getAll, getById, updateUser, deleteUser } from "../repositorys/user.repository";
+import { createUser, getAll, getById, updateUser, deleteUser } from "../repositories/user.repository";
 import { Request, Response } from "express";
-import { addAgencyToUser } from "../UseCase/add-Agency-To-User";
+import { addAgencyToUser } from "../Use-Case/add-Agency-To-User";
+
 
 
 
@@ -54,7 +55,9 @@ export const update = async (req: Request, res: Response) => {
   try {
     const data = req.body;
     const user = await updateUser(req.params.id, data);
-
+  
+    
+   
     res.status(200).send(user);
 
 
@@ -62,19 +65,19 @@ export const update = async (req: Request, res: Response) => {
 
 
   } catch (e: any) {
+    
+    res.status(400).send(e);
 
-    res.status(400).json({
-      e
-    });
-
+  
   }
 
 }
 export const addAgency = async (req: Request, res: Response) => {
   try {
-    const data = req.body;
     
-    const agency = data.agencies.connect.id;
+
+
+    const agency = req.body.agencies.connect.id;
     const user = await addAgencyToUser(req.params.id, agency);
     res.status(200).send(user);
 
@@ -89,11 +92,13 @@ export const addAgency = async (req: Request, res: Response) => {
 }
 export const remove = async (req: Request, res: Response) => {
   try {
-    await deleteUser(req.params.id);
+    const id = req.params.id
+    await deleteUser(id);
     res.status(200).send();
   }
   catch (e) {
-    res.status(400).send(e);
+    res.status(400).send({ message: "Deleted User", e });
+
 
   }
 

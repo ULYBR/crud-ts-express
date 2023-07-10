@@ -19,7 +19,7 @@ const createAgency = (data) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.createAgency = createAgency;
 const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
-    const agencys = yield services_1.prisma.agency.findMany({
+    const agencies = yield services_1.prisma.agency.findMany({
         select: {
             id: true,
             name: true,
@@ -27,7 +27,7 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             users: true,
         }
     });
-    return agencys;
+    return agencies;
 });
 exports.getAll = getAll;
 const getAgencyById = (id) => __awaiter(void 0, void 0, void 0, function* () {

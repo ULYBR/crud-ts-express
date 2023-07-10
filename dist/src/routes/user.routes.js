@@ -6,8 +6,8 @@ const userRoutes = (app) => {
     app.post("/users", user_controller_1.create);
     app.get("/users", user_controller_1.get);
     app.get("/users/:id", auth_1.verifyToken, user_controller_1.getId);
-    app.put("/users/:id", user_controller_1.update);
-    app.put("/users/add/:id", user_controller_1.update);
+    app.put("/users/:id", auth_1.verifyToken, user_controller_1.update);
+    app.put("/users/add-agency/:id", auth_1.verifyToken, user_controller_1.addAgency);
     app.delete("/users/:id", auth_1.verifyToken, user_controller_1.remove);
 };
 exports.default = userRoutes;
