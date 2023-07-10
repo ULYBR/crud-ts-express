@@ -15,8 +15,5 @@
     "removeComments": false,
     "rootDir": "./",
     "outDir": "dist",
-  },
-  "include": [
-    "src/**/*"
-  ]
+  }
 }

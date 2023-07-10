@@ -1,11 +1,10 @@
 
-import { User } from "prisma/prisma-client"
+import User from "./user.types";
 
 export type Agency = {
   id: string;
-  user: User;
   name: string;
   cnpj: string;
-  users: object;
+  users: User;
 }
 export default Agency;

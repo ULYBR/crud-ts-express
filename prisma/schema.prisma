@@ -8,23 +8,23 @@ datasource db {
 }
 
 model User {
-  id           String          @id @default(uuid())
-  name         String?
-  email        String          @unique
-  password     String
-  role         Role            @default(USER)
-  createdAt    DateTime        @default(now())
-  updatedAt    DateTime        @updatedAt
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   agencies  Agency[]
 }
 
-
-
 model Agency {
-  id           String          @id @default(uuid())
-  name         String
-  cnpj         String          @unique
-  users User[] 
+  id        String   @id @default(uuid())
+  name      String
+  cnpj      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     User[]
 }
 
 enum Role {

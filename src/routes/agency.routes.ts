@@ -1,13 +1,14 @@
 import { Application } from "express";
-import { create, get, getId, remove, update } from "../controllers/agency.controller";
+import { addUser, create, get, getId, remove, update } from "../controllers/agency.controller";
 import { verifyToken } from "../middlewares/auth";
 
 const agencyRoutes = (app: Application) => {
-  app.post("/agencys", create);
-  app.get("/agencys", verifyToken, get);
-  app.get("/agencys/:id",verifyToken, getId);
-  app.put("/agencys/:id",verifyToken,  update);
-  app.delete("/agencys/:id",verifyToken, remove);
+  app.post("/agencies", create);
+  app.get("/agencies", verifyToken, get);
+  app.get("/agencies/:id", verifyToken, getId);
+  app.put("/agencies/:id", verifyToken, update);
+  app.put("/agencies/add-user/:id", verifyToken, addUser);
+  app.delete("/agencies/:id", verifyToken, remove);
 }
 
 export default agencyRoutes;

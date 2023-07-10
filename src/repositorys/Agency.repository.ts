@@ -1,5 +1,5 @@
 import { prisma } from "../services/services";
-import Agency from "../types/angency.types";
+import { Agency } from "@prisma/client";
 
 
 
@@ -26,7 +26,7 @@ export const getAll = async () => {
 }
 
 
-export const getById = async (id: string) => {
+export const getAgencyById = async (id: string) => {
   const agency = await prisma.agency.findUnique({
     where: {
       id

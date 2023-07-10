@@ -35,7 +35,7 @@ const get = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.get = get;
 const getId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const agency = yield (0, Agency_repository_1.getById)(req.params.id);
+        const agency = yield (0, Agency_repository_1.getAgencyById)(req.params.id);
         res.status(200).send(agency);
     }
     catch (e) {

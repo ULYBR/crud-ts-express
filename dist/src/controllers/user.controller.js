@@ -16,6 +16,7 @@ exports.remove = exports.update = exports.getId = exports.get = exports.create =
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const user_validation_1 = require("../validations/user.validation");
 const user_repository_1 = require("../repositorys/user.repository");
+const add_Agency_To_User_1 = require("../UseCase /add-Agency-To-User");
 const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield user_validation_1.userValidation.validate(req.body);
@@ -53,6 +54,8 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield (0, user_repository_1.updateUser)(req.params.id, req.body);
         res.status(200).send(user);
+        const users = yield (0, add_Agency_To_User_1.addAgencyToUser)(req.params.id, req.body);
+        res.status(200).send(users);
     }
     catch (e) {
         res.status(400).send(e);

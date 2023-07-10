@@ -1,9 +1,10 @@
+import Agency from "./angency.types";
 import { Role } from "@prisma/client";
 export type User = {
     name: string;
     email: string;
     password: string;
     role: Role;
-    Agencys: object;
+    agencies: Agency;
 };
 export default User;

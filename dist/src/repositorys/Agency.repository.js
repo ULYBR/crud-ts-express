@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteAgency = exports.updateAgency = exports.getById = exports.getAll = exports.createAgency = void 0;
+exports.deleteAgency = exports.updateAgency = exports.getAgencyById = exports.getAll = exports.createAgency = void 0;
 const services_1 = require("../services/services");
 const createAgency = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const agency = yield services_1.prisma.agency.create({
@@ -24,21 +24,27 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             id: true,
             name: true,
             cnpj: true,
-            Users: true,
+            users: true,
         }
     });
     return agencys;
 });
 exports.getAll = getAll;
-const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+const getAgencyById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const agency = yield services_1.prisma.agency.findUnique({
         where: {
             id
         },
+        select: {
+            id: true,
+            name: true,
+            cnpj: true,
+            users: true,
+        }
     });
     return agency;
 });
-exports.getById = getById;
+exports.getAgencyById = getAgencyById;
 const updateAgency = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
     const agency = yield services_1.prisma.agency.update({
         where: {
@@ -49,7 +55,7 @@ const updateAgency = (id, data) => __awaiter(void 0, void 0, void 0, function* (
             id: true,
             name: true,
             cnpj: true,
-            Users: true
+            users: true
         },
     });
     return agency;

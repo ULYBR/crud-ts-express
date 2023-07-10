@@ -60,28 +60,7 @@ export const getById = async (id: string) => {
   return user;
 }
 
-export const addAgencyToUser = async (userId: string, agencyId: string) => {
-    const user = await prisma.user.update({
-    where: {
-      id: userId
-    },
-    data: {
-      agencies: {
-        connect: { id: agencyId }
-      }
-    },
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      password: false,
-      createdAt: true,
-      updatedAt: true,
-      agencies: true
-    }
-  });
-  return user 
-}
+
 
 export const updateUser = async (id: string, data: User) => {
   const user = await prisma.user.update({
