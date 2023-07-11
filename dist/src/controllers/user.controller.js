@@ -24,6 +24,7 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const hashPassword = yield bcrypt_1.default.hash(data.password, 10);
         data.password = hashPassword;
         const user = yield (0, user_repository_1.createUser)(data);
+        console.log(user);
         res.status(200).send(user);
     }
     catch (e) {
@@ -58,14 +59,12 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(200).send(user);
     }
     catch (e) {
-        console.log(e);
         res.status(400).send(e);
     }
 });
 exports.update = update;
 const addAgency = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log(req.params.id);
         const agency = req.body.agencies.connect.id;
         const user = yield (0, add_Agency_To_User_1.addAgencyToUser)(req.params.id, agency);
         res.status(200).send(user);

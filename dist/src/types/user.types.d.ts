@@ -5,6 +5,6 @@ export type User = {
     email: string;
     password: string;
     role: Role;
-    agencies: Agency;
+    agency: Agency;
 };
 export default User;

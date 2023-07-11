@@ -18,6 +18,7 @@ export declare const getAll: () => Promise<{
         role: import(".prisma/client").Role;
         createdAt: Date;
         updatedAt: Date;
+        agencyId: string | null;
     }, unknown> & {})[];
 }[]>;
 export declare const getAgencyById: (id: string) => Promise<{
@@ -32,6 +33,7 @@ export declare const getAgencyById: (id: string) => Promise<{
         role: import(".prisma/client").Role;
         createdAt: Date;
         updatedAt: Date;
+        agencyId: string | null;
     }, unknown> & {})[];
 } | null>;
 export declare const updateAgency: (id: string, data: Agency) => Promise<{
@@ -46,6 +48,7 @@ export declare const updateAgency: (id: string, data: Agency) => Promise<{
         role: import(".prisma/client").Role;
         createdAt: Date;
         updatedAt: Date;
+        agencyId: string | null;
     }, unknown> & {})[];
 }>;
 export declare const deleteAgency: (id: string) => Promise<void>;

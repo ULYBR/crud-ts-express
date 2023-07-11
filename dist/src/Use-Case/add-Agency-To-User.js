@@ -14,28 +14,29 @@ const agency_repository_1 = require("../repositories/agency.repository");
 const user_repository_1 = require("../repositories/user.repository");
 const services_1 = require("../services/services");
 const addAgencyToUser = (userId, agencyId) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     const user = yield (0, user_repository_1.getById)(userId);
-    console.log(user);
     if (!user)
         throw new Error('User not found⛔');
     const agency = yield (0, agency_repository_1.getAgencyById)(agencyId);
-    console.log(agencyId);
     if (!agency)
         throw new Error('Agency not found⛔');
-    const hasAgencyInUser = yield user.agencies.every((agency) => agency.id === agencyId);
-    console.log(hasAgencyInUser);
-    if (hasAgencyInUser)
+    const HasAgencyInUser = ((_a = user.agency) === null || _a === void 0 ? void 0 : _a.id) === agencyId;
+    if (HasAgencyInUser) {
         throw new Error('User already registered in the agency⛔');
-    const updatedUser = yield services_1.prisma.user.update({
-        where: {
-            id: userId,
-        },
-        data: {
-            agencies: {
-                connect: { id: agencyId },
+    }
+    else {
+        const updatedUser = yield services_1.prisma.user.update({
+            where: {
+                id: userId,
             },
-        },
-    });
-    return updatedUser;
+            data: {
+                agency: {
+                    connect: { id: agencyId },
+                },
+            },
+        });
+        return updatedUser;
+    }
 });
 exports.addAgencyToUser = addAgencyToUser;

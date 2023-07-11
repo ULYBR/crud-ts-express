@@ -6,7 +6,7 @@ import { Role } from "@prisma/client";
   email: string;
   password: string;
   role: Role;
-  agencies: Agency;
+  agency: Agency;
 };
 
 export default User;

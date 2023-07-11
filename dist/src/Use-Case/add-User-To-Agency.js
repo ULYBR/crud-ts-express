@@ -10,9 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addUserToAgency = void 0;
+const services_1 = require("../services/services");
 const agency_repository_1 = require("../repositories/agency.repository");
 const user_repository_1 = require("../repositories/user.repository");
-const services_1 = require("../services/services");
 const addUserToAgency = (userId, agencyId) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield (0, user_repository_1.getById)(userId);
     if (!user)
@@ -20,19 +20,22 @@ const addUserToAgency = (userId, agencyId) => __awaiter(void 0, void 0, void 0, 
     const agency = yield (0, agency_repository_1.getAgencyById)(agencyId);
     if (!agency)
         throw new Error('Agency not found⛔');
-    const hasUserInAgency = yield agency.users.every((user) => user.id === userId);
-    if (!hasUserInAgency)
-        throw new Error('Agency already registered in the User⛔');
-    const updatedAgency = yield services_1.prisma.agency.update({
-        where: {
-            id: agencyId,
-        },
-        data: {
-            users: {
-                connect: { id: userId },
+    const HasUserInAngency = agency.users.some((user) => user.id === userId);
+    if (HasUserInAngency) {
+        throw new Error('User already registered in the agency⛔');
+    }
+    else if (!HasUserInAngency) {
+        const updatedAgency = yield services_1.prisma.agency.update({
+            where: {
+                id: agencyId,
             },
-        },
-    });
-    return updatedAgency;
+            data: {
+                users: {
+                    connect: { id: userId },
+                },
+            },
+        });
+        return updatedAgency;
+    }
 });
 exports.addUserToAgency = addUserToAgency;

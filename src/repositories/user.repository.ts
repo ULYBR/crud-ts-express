@@ -5,6 +5,7 @@ import { prisma } from "../services/services";
 
 
 export const createUser = async (data: User) => {
+  
   const user = await prisma.user.create({
     data,
     select: {
@@ -14,10 +15,11 @@ export const createUser = async (data: User) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      agencies: true
+      agency: true
 
     }
   });
+  
   return user;
 
 };
@@ -33,7 +35,7 @@ export const getAll = async () => {
       createdAt: true,
       updatedAt: true,
       role: true,
-      agencies:true
+      agency:true
 
     }
   })
@@ -53,7 +55,7 @@ export const getById = async (id: string) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      agencies: true
+      agency: true
 
     }
   });
@@ -76,7 +78,7 @@ export const updateUser = async (id: string, data: User) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      agencies: true
+      agency: true
 
     },
   });
