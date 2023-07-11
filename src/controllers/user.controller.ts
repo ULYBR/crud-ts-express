@@ -19,7 +19,7 @@ export const create = async (req: Request, res: Response) => {
     const hashPassword = await bcrypt.hash(data.password, 10)
     data.password = hashPassword;
     const user = await createUser(data);
-    console.log(user)
+    
 
     res.status(200).send(user);
   } catch (e) {

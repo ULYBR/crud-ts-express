@@ -16,7 +16,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   agencyId  String?
-  agency    Agency?   @relation(fields: [agencyId], references: [id])
+  agency    Agency?  @relation(fields: [agencyId], references: [id])
   customers Client[]
 }
 
@@ -27,12 +27,15 @@ model Agency {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   users     User[]
+  Client    Client[]
 }
 
 model Client {
-  id    String @id @default(uuid())
-  name  String @unique
-  Users User[]
+  id       String @id @default(uuid())
+  name     String 
+  Users    User[]
+  agencyId String
+  agency   Agency @relation(fields: [agencyId], references: [id])
 }
 
 enum Role {

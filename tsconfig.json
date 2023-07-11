@@ -5,7 +5,7 @@
   "compilerOptions": {
     "inlineSources": false,
     "strict": true,
-    "target": "es2016",
+    "target": "es2022",
     "module": "commonjs",
     "declaration": true,
     "noImplicitAny": true,
@@ -13,8 +13,9 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "removeComments": false,
-    "rootDir": "./",
-    "outDir": "dist",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "sourceMap": true,
     
   }
 }

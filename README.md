@@ -80,7 +80,7 @@ Isso irá iniciar o servidor Express e você poderá acessar a API REST em `http
 ## Endpoints da API
 
 Aqui estão alguns exemplos de endpoints que você pode utilizar nesta API:
-
+## User
 - `GET /users`: Retorna uma lista de usuários.
 - `GET /users/:id`: Retorna um usuário específico com base no ID fornecido.
 - `POST /users`: Cria um novo usuário.
