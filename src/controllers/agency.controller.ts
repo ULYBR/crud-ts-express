@@ -21,8 +21,8 @@ export const create = async (req: Request, res: Response) => {
 
 export const get = async (req: Request, res: Response) => {
   try {
-    const agencys = await getAll();
-    res.status(200).send(agencys);
+    const agencies = await getAll();
+    res.status(200).send(agencies);
 
   } catch (e) {
     res.status(400).send(e);

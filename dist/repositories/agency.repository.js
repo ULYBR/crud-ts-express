@@ -25,6 +25,7 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             name: true,
             cnpj: true,
             users: true,
+            Client: true,
         }
     });
     return agencies;
@@ -40,6 +41,7 @@ const getAgencyById = (id) => __awaiter(void 0, void 0, void 0, function* () {
             name: true,
             cnpj: true,
             users: true,
+            Client: true,
         }
     });
     return agency;
@@ -55,7 +57,8 @@ const updateAgency = (id, data) => __awaiter(void 0, void 0, void 0, function* (
             id: true,
             name: true,
             cnpj: true,
-            users: true
+            users: true,
+            Client: true,
         },
     });
     return agency;

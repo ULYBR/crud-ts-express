@@ -12,6 +12,11 @@ export declare const createUser: (data: User) => Promise<{
         createdAt: Date;
         updatedAt: Date;
     }, unknown> & {}) | null;
+    customers: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        agencyId: string;
+    }, unknown> & {})[];
 }>;
 export declare const getAll: () => Promise<{
     id: string;
@@ -27,6 +32,11 @@ export declare const getAll: () => Promise<{
         createdAt: Date;
         updatedAt: Date;
     }, unknown> & {}) | null;
+    customers: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        agencyId: string;
+    }, unknown> & {})[];
 }[]>;
 export declare const getById: (id: string) => Promise<{
     id: string;
@@ -41,6 +51,11 @@ export declare const getById: (id: string) => Promise<{
         createdAt: Date;
         updatedAt: Date;
     }, unknown> & {}) | null;
+    customers: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        agencyId: string;
+    }, unknown> & {})[];
 } | null>;
 export declare const updateUser: (id: string, data: User) => Promise<{
     id: string;
@@ -55,5 +70,10 @@ export declare const updateUser: (id: string, data: User) => Promise<{
         createdAt: Date;
         updatedAt: Date;
     }, unknown> & {}) | null;
+    customers: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        agencyId: string;
+    }, unknown> & {})[];
 }>;
 export declare const deleteUser: (id: string) => Promise<void>;

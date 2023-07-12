@@ -21,7 +21,8 @@ const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
             password: false,
             createdAt: true,
             updatedAt: true,
-            agency: true
+            agency: true,
+            customers: true
         }
     });
     return user;
@@ -37,7 +38,8 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             createdAt: true,
             updatedAt: true,
             role: true,
-            agency: true
+            agency: true,
+            customers: true,
         }
     });
     return users;
@@ -55,7 +57,8 @@ const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
             password: false,
             createdAt: true,
             updatedAt: true,
-            agency: true
+            agency: true,
+            customers: true,
         }
     });
     return user;
@@ -74,7 +77,8 @@ const updateUser = (id, data) => __awaiter(void 0, void 0, void 0, function* () 
             password: false,
             createdAt: true,
             updatedAt: true,
-            agency: true
+            agency: true,
+            customers: true,
         },
     });
     return user;

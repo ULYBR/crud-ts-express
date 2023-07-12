@@ -20,6 +20,11 @@ export declare const getAll: () => Promise<{
         updatedAt: Date;
         agencyId: string | null;
     }, unknown> & {})[];
+    Client: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        agencyId: string;
+    }, unknown> & {})[];
 }[]>;
 export declare const getAgencyById: (id: string) => Promise<{
     id: string;
@@ -35,6 +40,11 @@ export declare const getAgencyById: (id: string) => Promise<{
         updatedAt: Date;
         agencyId: string | null;
     }, unknown> & {})[];
+    Client: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        agencyId: string;
+    }, unknown> & {})[];
 } | null>;
 export declare const updateAgency: (id: string, data: Agency) => Promise<{
     id: string;
@@ -49,6 +59,11 @@ export declare const updateAgency: (id: string, data: Agency) => Promise<{
         createdAt: Date;
         updatedAt: Date;
         agencyId: string | null;
+    }, unknown> & {})[];
+    Client: (import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        agencyId: string;
     }, unknown> & {})[];
 }>;
 export declare const deleteAgency: (id: string) => Promise<void>;
