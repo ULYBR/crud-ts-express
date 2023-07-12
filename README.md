@@ -79,21 +79,39 @@ Isso irá iniciar o servidor Express e você poderá acessar a API REST em `http
 
 ## Endpoints da API
 
-Aqui estão alguns exemplos de endpoints que você pode utilizar nesta API:
-## User
+### User (Usuário)
+
 - `GET /users`: Retorna uma lista de usuários.
-- `GET /users/:id`: Retorna um usuário específico com base no ID fornecido.
+
+- `GET /users/:id`: Retorna os detalhes de um usuário específico com base no ID fornecido.
+
 - `POST /users`: Cria um novo usuário.
-- `PUT /users/:id`: Atualiza um usuário existente com base no ID fornecido.
-- `PUT /users/add-agency/:id`: Adicionar uma agência a um usuário exitente com base no ID fornecido.
+
+- `PUT /users/:id`: Atualiza os detalhes de um usuário existente com base no ID fornecido.
+
 - `DELETE /users/:id`: Remove um usuário específico com base no ID fornecido.
-- `POST /login`: Acessar a pagina de login com email e senha.
-- `GET /agencies`: Retorna uma lista de agência.
-- `GET /agencies/:id`: Retorna um agência específico com base no ID fornecido.
-- `POST /agencies`: Cria um novo agência.
-- `PUT /agencies/:id`: Atualiza um agência existente com base no ID fornecido.
-- `PUT /agencies/add-user/:id`: Adicionar um usuário a agência existente com base no ID fornecido.
-- `DELETE /agencies/:id`: Remove um agência específico com base no ID fornecido.
+
+### Agency (Agência)
+
+- `GET /agencies`: Retorna uma lista de agências.
+
+- `GET /agencies/:id`: Retorna os detalhes de uma agência específica com base no ID fornecido.
+
+- `POST /agencies`: Cria uma nova agência.
+
+- `PUT /agencies/:id`: Atualiza os detalhes de uma agência existente com base no ID fornecido.
+
+- `DELETE /agencies/:id`: Remove uma agência específica com base no ID fornecido.
+
+### Client (Cliente)
+
+- `GET /clients`: Retorna uma lista de clientes.
+- `GET /clients/:id`: Retorna os detalhes de um cliente específico com base no ID fornecido.
+- `POST /clients`: Cria um novo cliente.
+- `PUT /clients/:id`: Atualiza os detalhes de um cliente existente com base no ID fornecido.
+- `DELETE /clients/:id`: Remove um cliente específico com base no ID fornecido.
+
+Lembre-se de substituir `:id` pelos IDs reais ao fazer as solicitações.
 
 
 # Uso dos endpoints 
@@ -105,7 +123,13 @@ Certifique-se de consultar a documentação do seu código-fonte para obter mais
 ## Contribuindo
 
 Se você deseja contribuir para este projeto, fique à vontade para abrir uma issue ou enviar uma pull request. Será um prazer receber suas contribuições!
+## Insomnia Test 
+Import arquivo Insomnia.json que irá ter todos os métodos usados para exemplo da API.
 
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
+Aqui está a documentação revisada em formato Markdown (MD) com base nos endpoints fornecidos anteriormente:
+
+
+

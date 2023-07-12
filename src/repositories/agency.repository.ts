@@ -19,6 +19,7 @@ export const getAll = async () => {
       name:true,
       cnpj:true,
       users:true,
+      Client:true,
     }
     
   })
@@ -36,6 +37,7 @@ export const getAgencyById = async (id: string) => {
       name: true,
       cnpj: true,
       users: true,
+      Client: true,
     }
 
     
@@ -54,7 +56,8 @@ export const updateAgency = async (id: string, data: Agency) => {
       id: true,
       name: true,
       cnpj:true,
-      users:true
+      users:true,
+      Client: true,
     },
   });
   return agency;

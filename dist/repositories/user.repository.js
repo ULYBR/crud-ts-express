@@ -1,9 +1,18 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.updateUser = exports.getById = exports.getAll = exports.createUser = void 0;
 const services_1 = require("../services/services");
-const createUser = async (data) => {
-    const user = await services_1.prisma.user.create({
+const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield services_1.prisma.user.create({
         data,
         select: {
             id: true,
@@ -16,10 +25,10 @@ const createUser = async (data) => {
         }
     });
     return user;
-};
+});
 exports.createUser = createUser;
-const getAll = async () => {
-    const users = await services_1.prisma.user.findMany({
+const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield services_1.prisma.user.findMany({
         select: {
             id: true,
             name: true,
@@ -32,10 +41,10 @@ const getAll = async () => {
         }
     });
     return users;
-};
+});
 exports.getAll = getAll;
-const getById = async (id) => {
-    const user = await services_1.prisma.user.findUnique({
+const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield services_1.prisma.user.findUnique({
         where: {
             id
         },
@@ -50,10 +59,10 @@ const getById = async (id) => {
         }
     });
     return user;
-};
+});
 exports.getById = getById;
-const updateUser = async (id, data) => {
-    const user = await services_1.prisma.user.update({
+const updateUser = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield services_1.prisma.user.update({
         where: {
             id
         },
@@ -69,15 +78,15 @@ const updateUser = async (id, data) => {
         },
     });
     return user;
-};
+});
 exports.updateUser = updateUser;
-const deleteUser = async (id) => {
-    await services_1.prisma.user.delete({
+const deleteUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    yield services_1.prisma.user.delete({
         where: {
             id
         }
     });
     return;
-};
+});
 exports.deleteUser = deleteUser;
 //# sourceMappingURL=user.repository.js.map

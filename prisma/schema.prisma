@@ -32,7 +32,7 @@ model Agency {
 
 model Client {
   id       String @id @default(uuid())
-  name     String 
+  name     String @unique
   Users    User[]
   agencyId String
   agency   Agency @relation(fields: [agencyId], references: [id])

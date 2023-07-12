@@ -1,16 +1,25 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteAgency = exports.updateAgency = exports.getAgencyById = exports.getAll = exports.createAgency = void 0;
 const services_1 = require("../services/services");
-const createAgency = async (data) => {
-    const agency = await services_1.prisma.agency.create({
+const createAgency = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    const agency = yield services_1.prisma.agency.create({
         data,
     });
     return agency;
-};
+});
 exports.createAgency = createAgency;
-const getAll = async () => {
-    const agencies = await services_1.prisma.agency.findMany({
+const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
+    const agencies = yield services_1.prisma.agency.findMany({
         select: {
             id: true,
             name: true,
@@ -19,10 +28,10 @@ const getAll = async () => {
         }
     });
     return agencies;
-};
+});
 exports.getAll = getAll;
-const getAgencyById = async (id) => {
-    const agency = await services_1.prisma.agency.findUnique({
+const getAgencyById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const agency = yield services_1.prisma.agency.findUnique({
         where: {
             id
         },
@@ -34,10 +43,10 @@ const getAgencyById = async (id) => {
         }
     });
     return agency;
-};
+});
 exports.getAgencyById = getAgencyById;
-const updateAgency = async (id, data) => {
-    const agency = await services_1.prisma.agency.update({
+const updateAgency = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+    const agency = yield services_1.prisma.agency.update({
         where: {
             id
         },
@@ -50,15 +59,15 @@ const updateAgency = async (id, data) => {
         },
     });
     return agency;
-};
+});
 exports.updateAgency = updateAgency;
-const deleteAgency = async (id) => {
-    await services_1.prisma.agency.delete({
+const deleteAgency = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    yield services_1.prisma.agency.delete({
         where: {
             id
         }
     });
     return;
-};
+});
 exports.deleteAgency = deleteAgency;
 //# sourceMappingURL=agency.repository.js.map

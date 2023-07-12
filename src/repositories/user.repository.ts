@@ -15,7 +15,8 @@ export const createUser = async (data: User) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      agency: true
+      agency: true,
+      customers:true
 
     }
   });
@@ -35,7 +36,8 @@ export const getAll = async () => {
       createdAt: true,
       updatedAt: true,
       role: true,
-      agency:true
+      agency:true,
+      customers:true,
 
     }
   })
@@ -55,7 +57,8 @@ export const getById = async (id: string) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      agency: true
+      agency: true,
+      customers:true,
 
     }
   });
@@ -78,7 +81,8 @@ export const updateUser = async (id: string, data: User) => {
       password: false,
       createdAt: true,
       updatedAt: true,
-      agency: true
+      agency: true,
+      customers:true,
 
     },
   });
