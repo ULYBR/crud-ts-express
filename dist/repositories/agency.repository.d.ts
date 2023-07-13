@@ -6,26 +6,30 @@ export declare const createAgency: (data: Agency) => Promise<import("@prisma/cli
     createdAt: Date;
     updatedAt: Date;
 }, unknown> & {}>;
-export declare const getAll: () => Promise<{
-    id: string;
-    name: string;
-    cnpj: string;
-    users: (import("@prisma/client/runtime").GetResult<{
+export declare const getAll: (page: number, limit: number) => Promise<{
+    agencies: {
         id: string;
         name: string;
-        email: string;
-        password: string;
-        role: import(".prisma/client").Role;
-        createdAt: Date;
-        updatedAt: Date;
-        agencyId: string | null;
-    }, unknown> & {})[];
-    Client: (import("@prisma/client/runtime").GetResult<{
-        id: string;
-        name: string;
-        agencyId: string;
-    }, unknown> & {})[];
-}[]>;
+        cnpj: string;
+        users: (import("@prisma/client/runtime").GetResult<{
+            id: string;
+            name: string;
+            email: string;
+            password: string;
+            role: import(".prisma/client").Role;
+            createdAt: Date;
+            updatedAt: Date;
+            agencyId: string | null;
+        }, unknown> & {})[];
+        Client: (import("@prisma/client/runtime").GetResult<{
+            id: string;
+            name: string;
+            agencyId: string;
+        }, unknown> & {})[];
+    }[];
+    totalAgenciesCount: number;
+    totalPages: number;
+}>;
 export declare const getAgencyById: (id: string) => Promise<{
     id: string;
     name: string;

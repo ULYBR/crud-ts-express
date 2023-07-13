@@ -28,7 +28,8 @@ const createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
     return user;
 });
 exports.createUser = createUser;
-const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
+const getAll = (page, limit) => __awaiter(void 0, void 0, void 0, function* () {
+    const offset = (page - 1) * limit;
     const users = yield services_1.prisma.user.findMany({
         select: {
             id: true,
@@ -40,9 +41,17 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             role: true,
             agency: true,
             customers: true,
-        }
+        },
+        skip: offset,
+        take: limit,
     });
-    return users;
+    const totalUsersCount = yield services_1.prisma.user.count();
+    const totalPages = Math.ceil(totalUsersCount / limit);
+    return {
+        users,
+        totalUsersCount,
+        totalPages,
+    };
 });
 exports.getAll = getAll;
 const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {

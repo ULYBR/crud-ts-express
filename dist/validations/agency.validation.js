@@ -26,7 +26,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.agencyValidation = void 0;
 const yup = __importStar(require("yup"));
 exports.agencyValidation = yup.object({
-    name: yup.string().required(),
-    cnpj: yup.string().required(),
+    name: yup.string().required('Name is required'),
+    cnpj: yup
+        .string()
+        .required('CNPJ is required')
+        .matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/, 'Invalid CNPJ format'),
 });
 //# sourceMappingURL=agency.validation.js.map

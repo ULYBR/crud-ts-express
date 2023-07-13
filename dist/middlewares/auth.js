@@ -11,12 +11,12 @@ const verifyToken = (req, res, next) => {
         return res.status(401).send({ message: "Required Token 🚨" });
     }
     try {
-        const replace = token.replace("Bearer ", "");
-        jsonwebtoken_1.default.verify(replace, String(process.env.TOKEN_KEY));
+        const extractedToken = token.replace("Bearer ", "");
+        jsonwebtoken_1.default.verify(extractedToken, String(process.env.TOKEN_KEY));
         next();
     }
     catch (e) {
-        res.status(401).send({ message: "Invalid Credentials ⛔" });
+        res.status(401).send({ message: "Invalid token ⛔" });
     }
 };
 exports.verifyToken = verifyToken;

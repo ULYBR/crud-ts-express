@@ -17,50 +17,62 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const data = req.body;
         yield client_validation_1.clientValidation.validate(data);
         const client = yield (0, client_repository_1.createClient)(data);
-        res.status(200).send(client);
+        res.status(201).json(client);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in client creation:', e);
+        res.status(400).json({ error: 'Failed to create client' });
     }
 });
 exports.create = create;
 const get = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const customers = yield (0, client_repository_1.getAll)();
-        res.status(200).send(customers);
+        const { page, limit } = req.query;
+        const customers = yield (0, client_repository_1.getAll)(Number(page), Number(limit));
+        res.status(200).json(customers);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in fetching clients:', e);
+        res.status(400).json({ error: 'Failed to fetch clients' });
     }
 });
 exports.get = get;
 const getId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const client = yield (0, client_repository_1.getById)(req.params.id);
-        res.status(200).send(client);
+        const client = yield (0, client_repository_1.getClientById)(req.params.id);
+        if (!client) {
+            return res.status(404).json({ error: 'Client not found' });
+        }
+        res.status(200).json(client);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in fetching client by ID:', e);
+        res.status(400).json({ error: 'Failed to fetch client' });
     }
 });
 exports.getId = getId;
 const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const client = yield (0, client_repository_1.updateClient)(req.params.id, req.body);
-        res.status(200).send(client);
+        if (!client) {
+            return res.status(404).json({ error: 'Client not found' });
+        }
+        res.status(200).json(client);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in updating client:', e);
+        res.status(400).json({ error: 'Failed to update client' });
     }
 });
 exports.update = update;
 const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const client = yield (0, client_repository_1.deleteClient)(req.params.id);
-        res.status(200).send();
+        yield (0, client_repository_1.deleteClient)(req.params.id);
+        res.status(200).json({ message: 'Client removed successfully' });
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in removing client', e);
+        res.status(400).json({ error: 'Failed to remove client' });
     }
 });
 exports.remove = remove;

@@ -1,4 +1,4 @@
-import Agency from "./angency.types";
+import Agency from "./agency.types";
 import { Role } from "@prisma/client";
 export type User = {
     name: string;

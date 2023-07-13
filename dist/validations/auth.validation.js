@@ -23,11 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.clientValidation = void 0;
+exports.authenticationSchema = void 0;
 const yup = __importStar(require("yup"));
-exports.clientValidation = yup.object({
-    name: yup.string().required('Name is required'),
-    agency: yup.string().required('Agency is required'),
-    users: yup.array().of(yup.string()).required('Users are required'),
+exports.authenticationSchema = yup.object().shape({
+    email: yup.string().email('Invalid email format').required('Email is required'),
+    password: yup.string().required('Password is required'),
 });
-//# sourceMappingURL=client.validation.js.map
+//# sourceMappingURL=auth.validation.js.map

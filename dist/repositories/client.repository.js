@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteClient = exports.updateClient = exports.getById = exports.getAll = exports.createClient = void 0;
+exports.deleteClient = exports.updateClient = exports.getClientById = exports.getAll = exports.createClient = void 0;
 const services_1 = require("../services/services");
 const createClient = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const client = yield services_1.prisma.client.create({
@@ -23,12 +23,28 @@ const createClient = (data) => __awaiter(void 0, void 0, void 0, function* () {
     return client;
 });
 exports.createClient = createClient;
-const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
-    const customers = yield services_1.prisma.client.findMany();
-    return customers;
+const getAll = (page, limit) => __awaiter(void 0, void 0, void 0, function* () {
+    const offset = (page - 1) * limit;
+    const customers = yield services_1.prisma.client.findMany({
+        select: {
+            id: true,
+            name: true,
+            agency: true,
+            Users: true,
+        },
+        skip: offset,
+        take: limit,
+    });
+    const totalCustomersCount = yield services_1.prisma.client.count();
+    const totalPages = Math.ceil(totalCustomersCount / limit);
+    return {
+        customers,
+        totalCustomersCount,
+        totalPages,
+    };
 });
 exports.getAll = getAll;
-const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+const getClientById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const client = yield services_1.prisma.client.findUnique({
         where: {
             id
@@ -40,7 +56,7 @@ const getById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     });
     return client;
 });
-exports.getById = getById;
+exports.getClientById = getClientById;
 const updateClient = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
     const client = yield services_1.prisma.client.update({
         where: {

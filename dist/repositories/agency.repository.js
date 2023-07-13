@@ -18,7 +18,8 @@ const createAgency = (data) => __awaiter(void 0, void 0, void 0, function* () {
     return agency;
 });
 exports.createAgency = createAgency;
-const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
+const getAll = (page, limit) => __awaiter(void 0, void 0, void 0, function* () {
+    const offset = (page - 1) * limit;
     const agencies = yield services_1.prisma.agency.findMany({
         select: {
             id: true,
@@ -26,9 +27,17 @@ const getAll = () => __awaiter(void 0, void 0, void 0, function* () {
             cnpj: true,
             users: true,
             Client: true,
-        }
+        },
+        skip: offset,
+        take: limit,
     });
-    return agencies;
+    const totalAgenciesCount = yield services_1.prisma.agency.count();
+    const totalPages = Math.ceil(totalAgenciesCount / limit);
+    return {
+        agencies,
+        totalAgenciesCount,
+        totalPages,
+    };
 });
 exports.getAll = getAll;
 const getAgencyById = (id) => __awaiter(void 0, void 0, void 0, function* () {

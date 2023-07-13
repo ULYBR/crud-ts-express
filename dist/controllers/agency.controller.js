@@ -18,30 +18,37 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const data = req.body;
         yield agency_validation_1.agencyValidation.validate(data);
         const agency = yield (0, agency_repository_1.createAgency)(data);
-        res.status(200).send(agency);
+        res.status(201).json(agency);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in agency creation:', e);
+        res.status(400).json({ error: 'Failed to create agency' });
     }
 });
 exports.create = create;
 const get = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const agencys = yield (0, agency_repository_1.getAll)();
-        res.status(200).send(agencys);
+        const { page, limit } = req.query;
+        const agencies = yield (0, agency_repository_1.getAll)(Number(page), Number(limit));
+        res.status(200).send(agencies);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in fetching agencies:', e);
+        res.status(400).json({ error: 'Failed to fetch agencies' });
     }
 });
 exports.get = get;
 const getId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const agency = yield (0, agency_repository_1.getAgencyById)(req.params.id);
+        if (!agency) {
+            return res.status(404).json({ error: 'Agency not found' });
+        }
         res.status(200).send(agency);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in fetching agency by ID:', e);
+        res.status(400).json({ error: 'Failed to fetch agency' });
     }
 });
 exports.getId = getId;
@@ -62,20 +69,25 @@ exports.addUser = addUser;
 const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const agency = yield (0, agency_repository_1.updateAgency)(req.params.id, req.body);
+        if (!agency) {
+            return res.status(404).json({ error: 'Agency not found' });
+        }
         res.status(200).send(agency);
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in updating agency:', e);
+        res.status(400).json({ error: 'Failed to update agency' });
     }
 });
 exports.update = update;
 const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const agency = yield (0, agency_repository_1.deleteAgency)(req.params.id);
-        res.status(200).send();
+        res.status(200).json({ message: 'Agency removed successfully' });
     }
     catch (e) {
-        res.status(400).send(e);
+        console.error('Error in removing agency', e);
+        res.status(400).json({ error: 'Failed to remove agency ' });
     }
 });
 exports.remove = remove;

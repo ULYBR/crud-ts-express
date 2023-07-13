@@ -33,8 +33,9 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.create = create;
 const get = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const users = yield (0, user_repository_1.getAll)();
-        res.status(200).send(users);
+        const { page, limit } = req.query;
+        const result = yield (0, user_repository_1.getAll)(Number(page), Number(limit));
+        res.status(200).json(result);
     }
     catch (e) {
         res.status(400).send(e);
