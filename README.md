@@ -116,7 +116,7 @@ Lembre-se de substituir `:id` pelos IDs reais ao fazer as solicitações.
 
 # Uso dos endpoints 
 
-Como padrão tem que criar um usuário e pegar o token que retorna no endpoit `POST /login` com corpo json sendo Email e senha do usuário.
+Como padrão tem que criar um usuário e pegar o token que retorna no endpoit `POST /auth/login` com corpo json sendo Email e senha do usuário.
 após isso poderar adcionar `N User para Agência e 1 Agência para User.
 Certifique-se de consultar a documentação do seu código-fonte para obter mais detalhes sobre os endpoints disponíveis.
 
