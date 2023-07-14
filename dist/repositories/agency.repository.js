@@ -1,85 +1,178 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+var __awaiter =
+  (this && this.__awaiter) ||
+  function (thisArg, _arguments, P, generator) {
+    function adopt(value) {
+      return value instanceof P
+        ? value
+        : new P(function (resolve) {
+            resolve(value);
+          });
+    }
     return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      function fulfilled(value) {
+        try {
+          step(generator.next(value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function rejected(value) {
+        try {
+          step(generator["throw"](value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function step(result) {
+        result.done
+          ? resolve(result.value)
+          : adopt(result.value).then(fulfilled, rejected);
+      }
+      step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-};
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteAgency = exports.updateAgency = exports.getAgencyById = exports.getAll = exports.createAgency = void 0;
+exports.deleteAgency =
+  exports.updateAgency =
+  exports.getAgencyById =
+  exports.getAll =
+  exports.createAgency =
+    void 0;
 const services_1 = require("../services/services");
-const createAgency = (data) => __awaiter(void 0, void 0, void 0, function* () {
+const createAgency = (data, userId, clientId) =>
+  __awaiter(void 0, void 0, void 0, function* () {
     const agency = yield services_1.prisma.agency.create({
-        data,
-    });
-    return agency;
-});
-exports.createAgency = createAgency;
-const getAll = (page, limit) => __awaiter(void 0, void 0, void 0, function* () {
-    const offset = (page - 1) * limit;
-    const agencies = yield services_1.prisma.agency.findMany({
-        select: {
+      data: Object.assign(Object.assign({}, data), {
+        users: {
+          connect: {
+            id: userId,
+          },
+        },
+        Client: {
+          connect: {
+            id: clientId,
+          },
+        },
+      }),
+      select: {
+        id: true,
+        name: true,
+        cnpj: true,
+        Client: true,
+        users: {
+          select: {
             id: true,
             name: true,
-            cnpj: true,
-            users: true,
-            Client: true,
+            email: true,
+            role: true,
+            createdAt: true,
+            updatedAt: true,
+            agency: true,
+          },
         },
-        skip: offset,
-        take: limit,
+      },
+    });
+    return agency;
+  });
+exports.createAgency = createAgency;
+const getAll = (page, limit) =>
+  __awaiter(void 0, void 0, void 0, function* () {
+    const offset = (page - 1) * limit;
+    const agencies = yield services_1.prisma.agency.findMany({
+      select: {
+        id: true,
+        name: true,
+        cnpj: true,
+        Client: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        users: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+      skip: offset,
+      take: limit,
     });
     const totalAgenciesCount = yield services_1.prisma.agency.count();
     const totalPages = Math.ceil(totalAgenciesCount / limit);
     return {
-        agencies,
-        totalAgenciesCount,
-        totalPages,
+      agencies,
+      totalAgenciesCount,
+      totalPages,
     };
-});
+  });
 exports.getAll = getAll;
-const getAgencyById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+const getAgencyById = (id) =>
+  __awaiter(void 0, void 0, void 0, function* () {
     const agency = yield services_1.prisma.agency.findUnique({
-        where: {
-            id
-        },
-        select: {
+      where: {
+        id,
+      },
+      select: {
+        id: true,
+        name: true,
+        cnpj: true,
+        Client: true,
+        users: {
+          select: {
             id: true,
             name: true,
-            cnpj: true,
-            users: true,
-            Client: true,
-        }
+            email: true,
+            role: true,
+            createdAt: true,
+            updatedAt: true,
+            agency: true,
+          },
+        },
+      },
     });
     return agency;
-});
+  });
 exports.getAgencyById = getAgencyById;
-const updateAgency = (id, data) => __awaiter(void 0, void 0, void 0, function* () {
+const updateAgency = (id, data) =>
+  __awaiter(void 0, void 0, void 0, function* () {
     const agency = yield services_1.prisma.agency.update({
-        where: {
-            id
-        },
-        data,
-        select: {
+      where: {
+        id,
+      },
+      data,
+      select: {
+        id: true,
+        name: true,
+        cnpj: true,
+        Client: true,
+        users: {
+          select: {
             id: true,
             name: true,
-            cnpj: true,
-            users: true,
-            Client: true,
+            email: true,
+            role: true,
+            createdAt: true,
+            updatedAt: true,
+            agency: true,
+          },
         },
+      },
     });
     return agency;
-});
+  });
 exports.updateAgency = updateAgency;
-const deleteAgency = (id) => __awaiter(void 0, void 0, void 0, function* () {
+const deleteAgency = (id) =>
+  __awaiter(void 0, void 0, void 0, function* () {
     yield services_1.prisma.agency.delete({
-        where: {
-            id
-        }
+      where: {
+        id,
+      },
     });
     return;
-});
+  });
 exports.deleteAgency = deleteAgency;
 //# sourceMappingURL=agency.repository.js.map

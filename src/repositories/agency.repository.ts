@@ -1,26 +1,24 @@
 import { Agency } from "@prisma/client";
 import { prisma } from "../services/services";
 
-
-
-export const createAgency = async (data: Agency, userId: string, clientId: string) => {
+export const createAgency = async (
+  data: Agency,
+  userId: string,
+  clientId: string,
+) => {
   const agency = await prisma.agency.create({
     data: {
       ...data,
       users: {
         connect: {
-          id: userId
-
-        }
+          id: userId,
+        },
       },
       Client: {
         connect: {
-          id: clientId
-        }
+          id: clientId,
+        },
       },
-
-
-
     },
     select: {
       id: true,
@@ -35,16 +33,12 @@ export const createAgency = async (data: Agency, userId: string, clientId: strin
           role: true,
           createdAt: true,
           updatedAt: true,
-          agency: true
-
-        }
-      }
-
-    }
-
+          agency: true,
+        },
+      },
+    },
   });
   return agency;
-
 };
 
 export const getAll = async (page: number, limit: number) => {
@@ -58,23 +52,19 @@ export const getAll = async (page: number, limit: number) => {
       Client: {
         select: {
           id: true,
-          name:true,
-        }
+          name: true,
+        },
       },
       users: {
         select: {
           id: true,
           name: true,
           email: true,
-          
-
-        }
-      }
-
+        },
+      },
     },
     skip: offset,
     take: limit,
-
   });
   const totalAgenciesCount = await prisma.agency.count();
   const totalPages = Math.ceil(totalAgenciesCount / limit);
@@ -83,13 +73,12 @@ export const getAll = async (page: number, limit: number) => {
     totalAgenciesCount,
     totalPages,
   };
-}
-
+};
 
 export const getAgencyById = async (id: string) => {
   const agency = await prisma.agency.findUnique({
     where: {
-      id
+      id,
     },
     select: {
       id: true,
@@ -104,22 +93,18 @@ export const getAgencyById = async (id: string) => {
           role: true,
           createdAt: true,
           updatedAt: true,
-          agency: true
-
-        }
-      }
-
-    }
-
+          agency: true,
+        },
+      },
+    },
   });
   return agency;
-}
-
+};
 
 export const updateAgency = async (id: string, data: Agency) => {
   const agency = await prisma.agency.update({
     where: {
-      id
+      id,
     },
     data,
     select: {
@@ -135,23 +120,19 @@ export const updateAgency = async (id: string, data: Agency) => {
           role: true,
           createdAt: true,
           updatedAt: true,
-          agency: true
-
-        }
-      }
-
-    }
+          agency: true,
+        },
+      },
+    },
   });
   return agency;
-
-}
+};
 
 export const deleteAgency = async (id: string) => {
   await prisma.agency.delete({
     where: {
-      id
-    }
+      id,
+    },
   });
-  return
-
-}
+  return;
+};

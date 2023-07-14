@@ -1,19 +1,15 @@
 import { User } from "@prisma/client";
 import { prisma } from "../services/services";
 
-
-
-
-export const createUser = async (data: User,clientId: string) => {
-  
+export const createUser = async (data: User, clientId: string) => {
   const user = await prisma.user.create({
-    data:{
+    data: {
       ...data,
-      customers:{
+      customers: {
         connect: {
           id: clientId,
-        }
-      }
+        },
+      },
     },
     select: {
       id: true,
@@ -23,13 +19,11 @@ export const createUser = async (data: User,clientId: string) => {
       createdAt: true,
       updatedAt: true,
       agency: true,
-      customers:true
-
-    }
+      customers: true,
+    },
   });
-  
-  return user;
 
+  return user;
 };
 
 export const getAll = async (page: number, limit: number) => {
@@ -61,12 +55,10 @@ export const getAll = async (page: number, limit: number) => {
   };
 };
 
-
-
 export const getById = async (id: string) => {
   const user = await prisma.user.findUnique({
     where: {
-      id
+      id,
     },
     select: {
       id: true,
@@ -76,20 +68,16 @@ export const getById = async (id: string) => {
       createdAt: true,
       updatedAt: true,
       agency: true,
-      customers:true,
-
-    }
+      customers: true,
+    },
   });
   return user;
-}
-
-
+};
 
 export const updateUser = async (id: string, data: User) => {
- 
   const user = await prisma.user.update({
     where: {
-      id
+      id,
     },
     data,
     select: {
@@ -100,20 +88,17 @@ export const updateUser = async (id: string, data: User) => {
       createdAt: true,
       updatedAt: true,
       agency: true,
-      customers:true,
-
+      customers: true,
     },
   });
   return user;
-
-}
+};
 
 export const deleteUser = async (id: string) => {
   await prisma.user.delete({
     where: {
-      id
-    }
+      id,
+    },
   });
-  return
-
-}
+  return;
+};

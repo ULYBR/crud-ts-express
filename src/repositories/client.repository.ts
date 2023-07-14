@@ -1,10 +1,6 @@
 import { Client } from "@prisma/client";
 import { prisma } from "../services/services";
 
-
-
-
-
 export const createClient = async (data: Client, userId: string) => {
   const client = await prisma.client.create({
     data: {
@@ -32,7 +28,7 @@ export const getAll = async (page: number, limit: number) => {
     select: {
       id: true,
       name: true,
-      agency:false,
+      agency: false,
       Users: {
         select: {
           id: true,
@@ -41,11 +37,9 @@ export const getAll = async (page: number, limit: number) => {
           role: true,
           createdAt: true,
           updatedAt: true,
-          agency: true
-
-        }
-      }
-
+          agency: true,
+        },
+      },
     },
     skip: offset,
     take: limit,
@@ -60,22 +54,20 @@ export const getAll = async (page: number, limit: number) => {
   };
 };
 
-
 export const getClientById = async (id: string) => {
   const client = await prisma.client.findUnique({
     where: {
-      id
+      id,
     },
     select: {
       id: true,
       name: true,
       agency: {
-        select:{
-          id:true,
-          name:true,
-          cnpj:true,
-          
-        }
+        select: {
+          id: true,
+          name: true,
+          cnpj: true,
+        },
       },
       Users: {
         select: {
@@ -85,45 +77,34 @@ export const getClientById = async (id: string) => {
           role: true,
           createdAt: true,
           updatedAt: true,
-          agency: false
-
-        }
-      }
-
-    }
-    
-   
+          agency: false,
+        },
+      },
+    },
   });
   return client;
-}
-
-
+};
 
 export const updateClient = async (id: string, data: Client) => {
-
   const client = await prisma.client.update({
     where: {
-      id
+      id,
     },
     data,
     select: {
       name: true,
       agency: true,
       agencyId: true,
-
-
     },
   });
   return client;
-
-}
+};
 
 export const deleteClient = async (id: string) => {
   await prisma.client.delete({
     where: {
-      id
-    }
+      id,
+    },
   });
-  return
-
-}
+  return;
+};

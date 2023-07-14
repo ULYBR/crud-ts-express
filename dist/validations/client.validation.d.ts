@@ -1,10 +1,15 @@
 import * as yup from "yup";
-export declare const clientValidation: yup.ObjectSchema<{
+export declare const clientValidation: yup.ObjectSchema<
+  {
     name: string;
-    agency: string;
-    users: (string | undefined)[];
-}, yup.AnyObject, {
+    agencyId: string;
+    Users: string;
+  },
+  yup.AnyObject,
+  {
     name: undefined;
-    agency: undefined;
-    users: "";
-}, "">;
+    agencyId: undefined;
+    Users: undefined;
+  },
+  ""
+>;

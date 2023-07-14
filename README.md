@@ -25,6 +25,7 @@ git clone https://gitlab.com/tegrus/learning-isc-team/ulysses/crud-ts.git
 ```bash
 yarn build
 ```
+
 3. Crie uma conta no supabase e vai em database .
 
 4. Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um exemplo básico de configuração:
@@ -51,7 +52,6 @@ TOKEN_KEY = "//Defina a senha ."
 ```
 
 Certifique-se de substituir `usuario`, `senha`, `5432` e `nome-do-banco` pelas suas configurações locais do PostgreSQL.
-
 
 ## Migração do banco de dados
 
@@ -113,23 +113,21 @@ Isso irá iniciar o servidor Express e você poderá acessar a API REST em `http
 
 Lembre-se de substituir `:id` pelos IDs reais ao fazer as solicitações.
 
+# Uso dos endpoints
 
-# Uso dos endpoints 
-
-Como padrão tem que criar um usuário e pegar o token que retorna no endpoit `POST /login` com corpo json sendo Email e senha do usuário.
+Como padrão tem que criar um usuário e pegar o token que retorna no endpoit `POST /auth/login` com corpo json sendo Email e senha do usuário.
 após isso poderar adcionar `N User para Agência e 1 Agência para User.
 Certifique-se de consultar a documentação do seu código-fonte para obter mais detalhes sobre os endpoints disponíveis.
 
 ## Contribuindo
 
 Se você deseja contribuir para este projeto, fique à vontade para abrir uma issue ou enviar uma pull request. Será um prazer receber suas contribuições!
-## Insomnia Test 
+
+## Insomnia Test
+
 Import arquivo Insomnia.json que irá ter todos os métodos usados para exemplo da API.
 
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
 Aqui está a documentação revisada em formato Markdown (MD) com base nos endpoints fornecidos anteriormente:
-
-
-

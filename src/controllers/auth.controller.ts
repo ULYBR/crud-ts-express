@@ -13,8 +13,8 @@ export const authenticate = async (req: Request, res: Response) => {
     const user = await prisma.user.findFirst({
       where: {
         email,
-      }
-    })
+      },
+    });
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password ⛔" });
     }
@@ -31,17 +31,17 @@ export const authenticate = async (req: Request, res: Response) => {
         String(process.env.TOKEN_KEY),
         {
           expiresIn: "6h",
-        }
+        },
       );
       return res.status(200).json({ token });
     } else {
       return res.status(401).json({ message: "Invalid email or password ⛔" });
     }
   } catch (e: unknown) {
-    if (e instanceof Error && e.name === 'ValidationError') {
+    if (e instanceof Error && e.name === "ValidationError") {
       return res.status(400).json({ message: e.message });
     }
-    console.error('Error in authentication:', e);
+    console.error("Error in authentication:", e);
     return res.status(500).json({ message: "Internal server error" });
   }
 };

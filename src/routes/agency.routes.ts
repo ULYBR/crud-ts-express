@@ -1,5 +1,12 @@
 import { Application } from "express";
-import { addUser, create, get, getId, remove, update } from "../controllers/agency.controller";
+import {
+  addUser,
+  create,
+  get,
+  getId,
+  remove,
+  update,
+} from "../controllers/agency.controller";
 import { verifyToken } from "../middlewares/auth";
 
 const agencyRoutes = (app: Application) => {
@@ -9,6 +16,6 @@ const agencyRoutes = (app: Application) => {
   app.put("/agencies/:id", verifyToken, update);
   app.put("/agencies/add-user/:id", verifyToken, addUser);
   app.delete("/agencies/:id", verifyToken, remove);
-}
+};
 
 export default agencyRoutes;

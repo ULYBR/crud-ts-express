@@ -1,1 +1,689 @@
-{"_type":"export","__export_format":4,"__export_date":"2023-07-13T20:35:58.095Z","__export_source":"insomnia.desktop.app:v2023.4.0","resources":[{"_id":"req_0818f6fa51104dd1882d2b89d8f7b4b0","parentId":"fld_07bd3303203640058df413b13d11fa58","modified":1689262258158,"created":1688660082036,"url":"{{ _.URL }}/agencies","name":"GetAll Agency","description":"","method":"GET","body":{"mimeType":"application/json","text":""},"parameters":[{"id":"pair_e482d448586840db87ca3807bb0354e3","name":"page","value":"1","description":"","disabled":false,"type":"text","multiline":false},{"id":"pair_9651c4699e084daabf99584ffe5c8880","name":"limit","value":"6","description":"","disabled":false,"type":"text","multiline":false}],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE","disabled":false},"metaSortKey":-1688654899496.8438,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_07bd3303203640058df413b13d11fa58","parentId":"wrk_62986f31f4f34558952189e16a3d975f","modified":1688660072824,"created":1688660072824,"name":"Agency","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1688660072825,"_type":"request_group"},{"_id":"wrk_62986f31f4f34558952189e16a3d975f","parentId":null,"modified":1689182426029,"created":1688482855836,"name":"Crud-Prisma","description":"","scope":"collection","_type":"workspace"},{"_id":"req_d26bb4198f274777bdf1739f2708c5cd","parentId":"fld_07bd3303203640058df413b13d11fa58","modified":1689259091116,"created":1688665791347,"url":"{{ _.URL }}/agencies/01a9cd78-8b69-47da-acd4-6fbb4364661c","name":"Delete Agency by ID","description":"","method":"DELETE","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE"},"metaSortKey":-1688654899493.7188,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_3cbeed2f81fb41ac855f74bb3d6af46e","parentId":"fld_07bd3303203640058df413b13d11fa58","modified":1689279192354,"created":1688665718703,"url":"{{ _.URL }}/agencies/01a9cd78-8b69-47da-acd4-6fbb4364661c","name":"Update Agency","description":"","method":"PUT","body":{"mimeType":"application/json","text":" \n\t\t{\n\t\t\t\"name\": \"a\"\n\t\t\t\n\t\t}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjcxMjg2LCJleHAiOjE2ODkyOTI4ODZ9.MQ0YtErhandJbRK5BH3EcGkhiHzepORHnIBVtSo82H8"},"metaSortKey":-1688654899490.5938,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_1feaa77d1f684e9c9d3bb90c41e21dfb","parentId":"fld_07bd3303203640058df413b13d11fa58","modified":1689101962348,"created":1689010586149,"url":"{{ _.URL }}/agencies/add-user/82c7815d-1e13-4a44-838c-d68c15844a8d","name":"add User Agency","description":"","method":"PUT","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"motovix-Vitória\",\n\t\"cnpj\": \"94.477.427/0001-29\",\n\t\"users\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"897e61ee-448b-40bd-92f1-1d128e61dfe9\"\n\t\t}\n\t}\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE"},"metaSortKey":-1688654899487.4688,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_164a2285cb7d425cbb4e100634a723b1","parentId":"fld_07bd3303203640058df413b13d11fa58","modified":1689279000230,"created":1688660174001,"url":"{{ _.URL }}/agencies","name":"Create Agency","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"Motovix- Viana \",\n\t\"cnpj\": \"94.477.422/0001-20\",\n\t\"users\": \"50de90f6-4870-4a84-849f-5d246e9b676a\",\n\t\"Client\": \"f3824a93-5781-400d-b047-810c4db5ad72\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE"},"metaSortKey":-1688654899484.3438,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_0d4b9ed1664a44d2a9b797e44faa3020","parentId":"fld_07bd3303203640058df413b13d11fa58","modified":1689258309944,"created":1688660134782,"url":"{{ _.URL }}/agencies/39e4f920-c3c8-493f-bbf9-f360ff9bef61","name":"GetById Agency","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE"},"metaSortKey":-1688654899471.8438,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_85c4f096d2954f4faedb1cc206938b6a","parentId":"fld_359c37c7bcd849dbafb908cdf94caec4","modified":1689280500688,"created":1688494533269,"url":"{{ _.URL }}/auth/login","name":"New Request","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"admin@admin.com.br\",\n\t\"password\": \"r%JfTVHyjSQqWwkN&M33KHJ&h6hh#k2*Gt3fGQzoBBKRag%%KtLYFXa*!g$8!k\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{},"metaSortKey":-1688494533269,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_359c37c7bcd849dbafb908cdf94caec4","parentId":"wrk_62986f31f4f34558952189e16a3d975f","modified":1688494526324,"created":1688494526324,"name":"AUTH","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1688494526324,"_type":"request_group"},{"_id":"req_bdb6964df95c4ff1848491b260028578","parentId":"fld_95d29f1006f64260b0690b106d3e680f","modified":1689102105582,"created":1688490099607,"url":"{{ _.URL }}/users/4ab9f8bd-79fd-4179-8c49-e6c7adc4d52c","name":"Delete User by ID","description":"","method":"DELETE","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE"},"metaSortKey":-1688482871800.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_95d29f1006f64260b0690b106d3e680f","parentId":"wrk_62986f31f4f34558952189e16a3d975f","modified":1688482871801,"created":1688482871801,"name":"User","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1688482871801,"_type":"request_group"},{"_id":"req_84980a679adf46d0a4f3e07c9d00ebd2","parentId":"fld_95d29f1006f64260b0690b106d3e680f","modified":1689102114840,"created":1688488632528,"url":"{{ _.URL }}/users/28381278-3b16-400d-b4f9-a627275975f9","name":"User id","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE","disabled":false},"metaSortKey":-1688482871775.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_714258f6bfdf4b8b95acbad0025e4bd0","parentId":"fld_95d29f1006f64260b0690b106d3e680f","modified":1689280476181,"created":1688482875417,"url":"{{ _.URL }}/users","name":"User Post","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"Admin\",\n\t\"email\": \"admin@admin.com.br\",\n\t\"password\": \"r%JfTVHyjSQqWwkN&M33KHJ&h6hh#k2*Gt3fGQzoBBKRag%%KtLYFXa*!g$8!k\",\n\t\"agencyId\": \"01a9cd78-8b69-47da-acd4-6fbb4364661c\",\n\t\"customers\": \"f3824a93-5781-400d-b047-810c4db5ad72\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRmMTFjNDhmLWMzMTAtNDY2OC1iNjc1LWMzY2U3MzIxOGNlMyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQHRlZ3J1cy5jb20uYnIiLCJuYW1lIjoidWx5c3NlcyIsImlhdCI6MTY4ODY2MTg4MSwiZXhwIjoxNjg4NjgzNDgxfQ.BIXA329PGXZhxWKB5hDgoLESZLnX3r8KaGWcBxPwOEg"},"metaSortKey":-1688482871750.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_4ee7627e0cb24264b06effe010da1afd","parentId":"fld_95d29f1006f64260b0690b106d3e680f","modified":1689280096162,"created":1688485254114,"url":"{{ _.URL }}/users","name":"User GetAll","description":"","method":"GET","body":{},"parameters":[{"id":"pair_9bf9a2a34c0a40688e070b367daf97b5","name":"page","value":"1","description":""},{"id":"pair_b36ec5ff3dc341299372c6d437e8e88d","name":"limit","value":"310","description":""}],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE","disabled":false},"metaSortKey":-1688482871700.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_7837f1bb84344d2880f826921ab0b787","parentId":"fld_95d29f1006f64260b0690b106d3e680f","modified":1689280243142,"created":1688489175363,"url":"{{ _.URL }}/users/cf20d19b-0ed9-40f9-96f7-a03aa649c22c","name":"Update User","description":"adicionar uma agencia pelo id : \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\ne para remover agencia pelo id: \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"disconnect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\n","method":"PUT","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"teste4\",\n\t\"email\": \"teste4@gmail.com\",\n\t\"password\": \"teste4\"\n}"},"parameters":[{"id":"pair_7028e5a325cc48bdbed1311faf812e19","name":"","value":"","description":""}],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjcxMjg2LCJleHAiOjE2ODkyOTI4ODZ9.MQ0YtErhandJbRK5BH3EcGkhiHzepORHnIBVtSo82H8","disabled":false},"metaSortKey":-1688482871675.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_1cc60686a6974b518942c4004f8e501b","parentId":"fld_95d29f1006f64260b0690b106d3e680f","modified":1689102144704,"created":1689005872700,"url":"{{ _.URL }}/users/add-agency/897e61ee-448b-40bd-92f1-1d128e61dfe9","name":"Add Agency User","description":"adicionar uma agencia pelo id : \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\ne para remover agencia pelo id: \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"disconnect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\n","method":"PUT","body":{"mimeType":"application/json","text":"{\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"82c7815d-1e13-4a44-838c-d68c15844a8d\"\n\t\t}\n\t}\n}\n\n"},"parameters":[{"id":"pair_7028e5a325cc48bdbed1311faf812e19","name":"","value":"","description":""}],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE","disabled":false},"metaSortKey":-1687542598576.997,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_9ba62979ef604c44888044b9fef8817b","parentId":"fld_e94008fde1bf4d1c980ab6bee925e7f1","modified":1689181394776,"created":1689102153646,"url":"{{ _.URL }}/clients/1bc9bc4d-3b5f-4812-80f5-15add021dde7","name":"Delete Client by ID","description":"","method":"DELETE","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MTgwODU5LCJleHAiOjE2ODkyMDI0NTl9.lo51zAgxR6-tBTMLOmXTf79aqU50_eRrrdwQ-3hgUPY"},"metaSortKey":-1688482871800.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_e94008fde1bf4d1c980ab6bee925e7f1","parentId":"wrk_62986f31f4f34558952189e16a3d975f","modified":1689102153631,"created":1689102153631,"name":"Client","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1688482871751,"_type":"request_group"},{"_id":"req_245af8d95cde42d085391362a01a4426","parentId":"fld_e94008fde1bf4d1c980ab6bee925e7f1","modified":1689276742873,"created":1689102153642,"url":"{{ _.URL }}/clients/7ae367c9-041b-4787-a9dd-7af8f62c18fd","name":"Client Get ID","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE","disabled":false},"metaSortKey":-1688482871775.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_16187b6264ec47e1bc67bbc359bfc2fd","parentId":"fld_e94008fde1bf4d1c980ab6bee925e7f1","modified":1689275846620,"created":1689102153636,"url":"{{ _.URL }}/clients","name":"Client Create","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"testees\",\n\t\"agencyId\": \"01a9cd78-8b69-47da-acd4-6fbb4364661c\",\n\t\"Users\": \"cf20d19b-0ed9-40f9-96f7-a03aa649c22c\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE"},"metaSortKey":-1688482871750.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_d2c7ae17bbf8417687b6d762510a3b97","parentId":"fld_e94008fde1bf4d1c980ab6bee925e7f1","modified":1689276583508,"created":1689102153639,"url":"{{ _.URL }}/clients","name":"Client Get All","description":"","method":"GET","body":{},"parameters":[{"id":"pair_a6112be40c344ca29db67cb0b693630c","name":"page","value":"1","description":""},{"id":"pair_ab837f78e9a647d8b05255332a035560","name":"limit","value":"4","description":""}],"headers":[{"id":"pair_3c29eb9cbd6f4adc9bb226f8a93b7839","name":"","value":"","description":""}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE","disabled":false},"metaSortKey":-1688482871700.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_1ea57c6f10c3483ab42233a2e6d3f1ff","parentId":"fld_e94008fde1bf4d1c980ab6bee925e7f1","modified":1689276721763,"created":1689102153645,"url":"{{ _.URL }}/clients/7ae367c9-041b-4787-a9dd-7af8f62c18fd","name":"Update Client","description":"adicionar uma agencia pelo id : \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\ne para remover agencia pelo id: \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"disconnect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\n","method":"PUT","body":{"mimeType":"application/json","text":"{\n\t\t\t\n\t\t\t\"name\": \"teste2\"\n\t\t\t\n\t\t}"},"parameters":[{"id":"pair_7028e5a325cc48bdbed1311faf812e19","name":"","value":"","description":""}],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjcxMjg2LCJleHAiOjE2ODkyOTI4ODZ9.MQ0YtErhandJbRK5BH3EcGkhiHzepORHnIBVtSo82H8","disabled":false},"metaSortKey":-1688482871675.994,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"env_d0c40dfa6be7043195687e03066bb5389104d073","parentId":"wrk_62986f31f4f34558952189e16a3d975f","modified":1689101939205,"created":1688482855839,"name":"Base Environment","data":{"URL":"http://localhost:3001"},"dataPropertyOrder":{"&":["URL"]},"color":null,"isPrivate":false,"metaSortKey":1688482855839,"_type":"environment"},{"_id":"jar_d0c40dfa6be7043195687e03066bb5389104d073","parentId":"wrk_62986f31f4f34558952189e16a3d975f","modified":1688571555602,"created":1688482855841,"name":"Default Jar","cookies":[{"key":"__cf_bm","value":"gYK9SguDHPF_wD_NRBV5m03joq2neGv6FuRpa.eHWMQ-1688571555-0-AeUF2fdFhg7VS9KvHojrql4OLxKU2pZURnO/i75wrDWVY6G1TwtpaZcQATLA09WUImOgIvuX9Acb0wH5g8guUZk=","expires":"2023-07-05T16:09:15.000Z","domain":"onrender.com","path":"/","secure":true,"httpOnly":true,"extensions":["SameSite=None"],"hostOnly":false,"creation":"2023-07-05T15:05:10.600Z","lastAccessed":"2023-07-05T15:39:15.601Z","id":"586488611522112"}],"_type":"cookie_jar"},{"_id":"env_be490417e5bf41f79a567837c92010f0","parentId":"env_d0c40dfa6be7043195687e03066bb5389104d073","modified":1689102060015,"created":1689101779662,"name":"New Environment","data":{},"dataPropertyOrder":{},"color":"#7d69cb","isPrivate":false,"metaSortKey":1689101779662,"_type":"environment"}]}
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2023-07-13T20:35:58.095Z",
+  "__export_source": "insomnia.desktop.app:v2023.4.0",
+  "resources": [
+    {
+      "_id": "req_0818f6fa51104dd1882d2b89d8f7b4b0",
+      "parentId": "fld_07bd3303203640058df413b13d11fa58",
+      "modified": 1689262258158,
+      "created": 1688660082036,
+      "url": "{{ _.URL }}/agencies",
+      "name": "GetAll Agency",
+      "description": "",
+      "method": "GET",
+      "body": { "mimeType": "application/json", "text": "" },
+      "parameters": [
+        {
+          "id": "pair_e482d448586840db87ca3807bb0354e3",
+          "name": "page",
+          "value": "1",
+          "description": "",
+          "disabled": false,
+          "type": "text",
+          "multiline": false
+        },
+        {
+          "id": "pair_9651c4699e084daabf99584ffe5c8880",
+          "name": "limit",
+          "value": "6",
+          "description": "",
+          "disabled": false,
+          "type": "text",
+          "multiline": false
+        }
+      ],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE",
+        "disabled": false
+      },
+      "metaSortKey": -1688654899496.8438,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_07bd3303203640058df413b13d11fa58",
+      "parentId": "wrk_62986f31f4f34558952189e16a3d975f",
+      "modified": 1688660072824,
+      "created": 1688660072824,
+      "name": "Agency",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1688660072825,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_62986f31f4f34558952189e16a3d975f",
+      "parentId": null,
+      "modified": 1689182426029,
+      "created": 1688482855836,
+      "name": "Crud-Prisma",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_d26bb4198f274777bdf1739f2708c5cd",
+      "parentId": "fld_07bd3303203640058df413b13d11fa58",
+      "modified": 1689259091116,
+      "created": 1688665791347,
+      "url": "{{ _.URL }}/agencies/01a9cd78-8b69-47da-acd4-6fbb4364661c",
+      "name": "Delete Agency by ID",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE"
+      },
+      "metaSortKey": -1688654899493.7188,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3cbeed2f81fb41ac855f74bb3d6af46e",
+      "parentId": "fld_07bd3303203640058df413b13d11fa58",
+      "modified": 1689279192354,
+      "created": 1688665718703,
+      "url": "{{ _.URL }}/agencies/01a9cd78-8b69-47da-acd4-6fbb4364661c",
+      "name": "Update Agency",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": " \n\t\t{\n\t\t\t\"name\": \"a\"\n\t\t\t\n\t\t}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjcxMjg2LCJleHAiOjE2ODkyOTI4ODZ9.MQ0YtErhandJbRK5BH3EcGkhiHzepORHnIBVtSo82H8"
+      },
+      "metaSortKey": -1688654899490.5938,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1feaa77d1f684e9c9d3bb90c41e21dfb",
+      "parentId": "fld_07bd3303203640058df413b13d11fa58",
+      "modified": 1689101962348,
+      "created": 1689010586149,
+      "url": "{{ _.URL }}/agencies/add-user/82c7815d-1e13-4a44-838c-d68c15844a8d",
+      "name": "add User Agency",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"motovix-Vitória\",\n\t\"cnpj\": \"94.477.427/0001-29\",\n\t\"users\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"897e61ee-448b-40bd-92f1-1d128e61dfe9\"\n\t\t}\n\t}\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE"
+      },
+      "metaSortKey": -1688654899487.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_164a2285cb7d425cbb4e100634a723b1",
+      "parentId": "fld_07bd3303203640058df413b13d11fa58",
+      "modified": 1689279000230,
+      "created": 1688660174001,
+      "url": "{{ _.URL }}/agencies",
+      "name": "Create Agency",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Motovix- Viana \",\n\t\"cnpj\": \"94.477.422/0001-20\",\n\t\"users\": \"50de90f6-4870-4a84-849f-5d246e9b676a\",\n\t\"Client\": \"f3824a93-5781-400d-b047-810c4db5ad72\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE"
+      },
+      "metaSortKey": -1688654899484.3438,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0d4b9ed1664a44d2a9b797e44faa3020",
+      "parentId": "fld_07bd3303203640058df413b13d11fa58",
+      "modified": 1689258309944,
+      "created": 1688660134782,
+      "url": "{{ _.URL }}/agencies/39e4f920-c3c8-493f-bbf9-f360ff9bef61",
+      "name": "GetById Agency",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE"
+      },
+      "metaSortKey": -1688654899471.8438,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_85c4f096d2954f4faedb1cc206938b6a",
+      "parentId": "fld_359c37c7bcd849dbafb908cdf94caec4",
+      "modified": 1689280500688,
+      "created": 1688494533269,
+      "url": "{{ _.URL }}/auth/login",
+      "name": "New Request",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"admin@admin.com.br\",\n\t\"password\": \"r%JfTVHyjSQqWwkN&M33KHJ&h6hh#k2*Gt3fGQzoBBKRag%%KtLYFXa*!g$8!k\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {},
+      "metaSortKey": -1688494533269,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_359c37c7bcd849dbafb908cdf94caec4",
+      "parentId": "wrk_62986f31f4f34558952189e16a3d975f",
+      "modified": 1688494526324,
+      "created": 1688494526324,
+      "name": "AUTH",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1688494526324,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_bdb6964df95c4ff1848491b260028578",
+      "parentId": "fld_95d29f1006f64260b0690b106d3e680f",
+      "modified": 1689102105582,
+      "created": 1688490099607,
+      "url": "{{ _.URL }}/users/4ab9f8bd-79fd-4179-8c49-e6c7adc4d52c",
+      "name": "Delete User by ID",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE"
+      },
+      "metaSortKey": -1688482871800.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_95d29f1006f64260b0690b106d3e680f",
+      "parentId": "wrk_62986f31f4f34558952189e16a3d975f",
+      "modified": 1688482871801,
+      "created": 1688482871801,
+      "name": "User",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1688482871801,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_84980a679adf46d0a4f3e07c9d00ebd2",
+      "parentId": "fld_95d29f1006f64260b0690b106d3e680f",
+      "modified": 1689102114840,
+      "created": 1688488632528,
+      "url": "{{ _.URL }}/users/28381278-3b16-400d-b4f9-a627275975f9",
+      "name": "User id",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE",
+        "disabled": false
+      },
+      "metaSortKey": -1688482871775.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_714258f6bfdf4b8b95acbad0025e4bd0",
+      "parentId": "fld_95d29f1006f64260b0690b106d3e680f",
+      "modified": 1689280476181,
+      "created": 1688482875417,
+      "url": "{{ _.URL }}/users",
+      "name": "User Post",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Admin\",\n\t\"email\": \"admin@admin.com.br\",\n\t\"password\": \"r%JfTVHyjSQqWwkN&M33KHJ&h6hh#k2*Gt3fGQzoBBKRag%%KtLYFXa*!g$8!k\",\n\t\"agencyId\": \"01a9cd78-8b69-47da-acd4-6fbb4364661c\",\n\t\"customers\": \"f3824a93-5781-400d-b047-810c4db5ad72\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRmMTFjNDhmLWMzMTAtNDY2OC1iNjc1LWMzY2U3MzIxOGNlMyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQHRlZ3J1cy5jb20uYnIiLCJuYW1lIjoidWx5c3NlcyIsImlhdCI6MTY4ODY2MTg4MSwiZXhwIjoxNjg4NjgzNDgxfQ.BIXA329PGXZhxWKB5hDgoLESZLnX3r8KaGWcBxPwOEg"
+      },
+      "metaSortKey": -1688482871750.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_4ee7627e0cb24264b06effe010da1afd",
+      "parentId": "fld_95d29f1006f64260b0690b106d3e680f",
+      "modified": 1689280096162,
+      "created": 1688485254114,
+      "url": "{{ _.URL }}/users",
+      "name": "User GetAll",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_9bf9a2a34c0a40688e070b367daf97b5",
+          "name": "page",
+          "value": "1",
+          "description": ""
+        },
+        {
+          "id": "pair_b36ec5ff3dc341299372c6d437e8e88d",
+          "name": "limit",
+          "value": "310",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE",
+        "disabled": false
+      },
+      "metaSortKey": -1688482871700.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7837f1bb84344d2880f826921ab0b787",
+      "parentId": "fld_95d29f1006f64260b0690b106d3e680f",
+      "modified": 1689280243142,
+      "created": 1688489175363,
+      "url": "{{ _.URL }}/users/cf20d19b-0ed9-40f9-96f7-a03aa649c22c",
+      "name": "Update User",
+      "description": "adicionar uma agencia pelo id : \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\ne para remover agencia pelo id: \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"disconnect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\n",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"teste4\",\n\t\"email\": \"teste4@gmail.com\",\n\t\"password\": \"teste4\"\n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_7028e5a325cc48bdbed1311faf812e19",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjcxMjg2LCJleHAiOjE2ODkyOTI4ODZ9.MQ0YtErhandJbRK5BH3EcGkhiHzepORHnIBVtSo82H8",
+        "disabled": false
+      },
+      "metaSortKey": -1688482871675.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1cc60686a6974b518942c4004f8e501b",
+      "parentId": "fld_95d29f1006f64260b0690b106d3e680f",
+      "modified": 1689102144704,
+      "created": 1689005872700,
+      "url": "{{ _.URL }}/users/add-agency/897e61ee-448b-40bd-92f1-1d128e61dfe9",
+      "name": "Add Agency User",
+      "description": "adicionar uma agencia pelo id : \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\ne para remover agencia pelo id: \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"disconnect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\n",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"82c7815d-1e13-4a44-838c-d68c15844a8d\"\n\t\t}\n\t}\n}\n\n"
+      },
+      "parameters": [
+        {
+          "id": "pair_7028e5a325cc48bdbed1311faf812e19",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDNiYmFmLTc1MGYtNGU2OS1iMmJiLThjMGQyYjZjNzc4MiIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MDkwMjg3LCJleHAiOjE2ODkxMTE4ODd9.0eKxtnwZJL5btLGgLxXJqa_vOrIbFs7cR6W6gXn9HCE",
+        "disabled": false
+      },
+      "metaSortKey": -1687542598576.997,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9ba62979ef604c44888044b9fef8817b",
+      "parentId": "fld_e94008fde1bf4d1c980ab6bee925e7f1",
+      "modified": 1689181394776,
+      "created": 1689102153646,
+      "url": "{{ _.URL }}/clients/1bc9bc4d-3b5f-4812-80f5-15add021dde7",
+      "name": "Delete Client by ID",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MTgwODU5LCJleHAiOjE2ODkyMDI0NTl9.lo51zAgxR6-tBTMLOmXTf79aqU50_eRrrdwQ-3hgUPY"
+      },
+      "metaSortKey": -1688482871800.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_e94008fde1bf4d1c980ab6bee925e7f1",
+      "parentId": "wrk_62986f31f4f34558952189e16a3d975f",
+      "modified": 1689102153631,
+      "created": 1689102153631,
+      "name": "Client",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1688482871751,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_245af8d95cde42d085391362a01a4426",
+      "parentId": "fld_e94008fde1bf4d1c980ab6bee925e7f1",
+      "modified": 1689276742873,
+      "created": 1689102153642,
+      "url": "{{ _.URL }}/clients/7ae367c9-041b-4787-a9dd-7af8f62c18fd",
+      "name": "Client Get ID",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE",
+        "disabled": false
+      },
+      "metaSortKey": -1688482871775.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_16187b6264ec47e1bc67bbc359bfc2fd",
+      "parentId": "fld_e94008fde1bf4d1c980ab6bee925e7f1",
+      "modified": 1689275846620,
+      "created": 1689102153636,
+      "url": "{{ _.URL }}/clients",
+      "name": "Client Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"testees\",\n\t\"agencyId\": \"01a9cd78-8b69-47da-acd4-6fbb4364661c\",\n\t\"Users\": \"cf20d19b-0ed9-40f9-96f7-a03aa649c22c\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE"
+      },
+      "metaSortKey": -1688482871750.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d2c7ae17bbf8417687b6d762510a3b97",
+      "parentId": "fld_e94008fde1bf4d1c980ab6bee925e7f1",
+      "modified": 1689276583508,
+      "created": 1689102153639,
+      "url": "{{ _.URL }}/clients",
+      "name": "Client Get All",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_a6112be40c344ca29db67cb0b693630c",
+          "name": "page",
+          "value": "1",
+          "description": ""
+        },
+        {
+          "id": "pair_ab837f78e9a647d8b05255332a035560",
+          "name": "limit",
+          "value": "4",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "id": "pair_3c29eb9cbd6f4adc9bb226f8a93b7839",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjU3ODk3LCJleHAiOjE2ODkyNzk0OTd9.dqQ1QrinJdMXiJwRG6SJQ6cLcPxdc9RRV0-sC8u2IlE",
+        "disabled": false
+      },
+      "metaSortKey": -1688482871700.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1ea57c6f10c3483ab42233a2e6d3f1ff",
+      "parentId": "fld_e94008fde1bf4d1c980ab6bee925e7f1",
+      "modified": 1689276721763,
+      "created": 1689102153645,
+      "url": "{{ _.URL }}/clients/7ae367c9-041b-4787-a9dd-7af8f62c18fd",
+      "name": "Update Client",
+      "description": "adicionar uma agencia pelo id : \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"connect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\ne para remover agencia pelo id: \n{\n\t\"name\": \"ulysses\",\n\t\"role\": \"ADMIN\",\n\t\"agencies\": {\n\t\t\"disconnect\": {\n\t\t\t\"id\": \"e67bb2f4-c0d8-41b8-8f96-ebb1d5785d09\"\n\t\t}\n\t}\n}\n\n",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\t\t\n\t\t\t\"name\": \"teste2\"\n\t\t\t\n\t\t}"
+      },
+      "parameters": [
+        {
+          "id": "pair_7028e5a325cc48bdbed1311faf812e19",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMjBkMTliLTBlZDktNDBmOS05NmY3LWEwM2FhNjQ5YzIyYyIsImVtYWlsIjoidWx5c3Nlcy5sZWFsQGNvbS5iciIsIm5hbWUiOiJ1bHlzc2VzIiwiaWF0IjoxNjg5MjcxMjg2LCJleHAiOjE2ODkyOTI4ODZ9.MQ0YtErhandJbRK5BH3EcGkhiHzepORHnIBVtSo82H8",
+        "disabled": false
+      },
+      "metaSortKey": -1688482871675.994,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_d0c40dfa6be7043195687e03066bb5389104d073",
+      "parentId": "wrk_62986f31f4f34558952189e16a3d975f",
+      "modified": 1689101939205,
+      "created": 1688482855839,
+      "name": "Base Environment",
+      "data": { "URL": "http://localhost:3001" },
+      "dataPropertyOrder": { "&": ["URL"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1688482855839,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_d0c40dfa6be7043195687e03066bb5389104d073",
+      "parentId": "wrk_62986f31f4f34558952189e16a3d975f",
+      "modified": 1688571555602,
+      "created": 1688482855841,
+      "name": "Default Jar",
+      "cookies": [
+        {
+          "key": "__cf_bm",
+          "value": "gYK9SguDHPF_wD_NRBV5m03joq2neGv6FuRpa.eHWMQ-1688571555-0-AeUF2fdFhg7VS9KvHojrql4OLxKU2pZURnO/i75wrDWVY6G1TwtpaZcQATLA09WUImOgIvuX9Acb0wH5g8guUZk=",
+          "expires": "2023-07-05T16:09:15.000Z",
+          "domain": "onrender.com",
+          "path": "/",
+          "secure": true,
+          "httpOnly": true,
+          "extensions": ["SameSite=None"],
+          "hostOnly": false,
+          "creation": "2023-07-05T15:05:10.600Z",
+          "lastAccessed": "2023-07-05T15:39:15.601Z",
+          "id": "586488611522112"
+        }
+      ],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "env_be490417e5bf41f79a567837c92010f0",
+      "parentId": "env_d0c40dfa6be7043195687e03066bb5389104d073",
+      "modified": 1689102060015,
+      "created": 1689101779662,
+      "name": "New Environment",
+      "data": {},
+      "dataPropertyOrder": {},
+      "color": "#7d69cb",
+      "isPrivate": false,
+      "metaSortKey": 1689101779662,
+      "_type": "environment"
+    }
+  ]
+}

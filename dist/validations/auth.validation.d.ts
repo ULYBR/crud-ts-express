@@ -1,8 +1,13 @@
-import * as yup from 'yup';
-export declare const authenticationSchema: yup.ObjectSchema<{
+import * as yup from "yup";
+export declare const authenticationSchema: yup.ObjectSchema<
+  {
     email: string;
     password: string;
-}, yup.AnyObject, {
+  },
+  yup.AnyObject,
+  {
     email: undefined;
     password: undefined;
-}, "">;
+  },
+  ""
+>;
