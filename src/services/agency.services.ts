@@ -6,7 +6,7 @@ import {
   updateAgency,
   deleteAgency,
 } from "../repositories/agency.repository";
-import { addUserToAgency as addUserToAgencyUseCase } from "../Use-Case/add-User-To-Agency";
+
 
 export const createAgencyWithUserIdAndClientId = async (
   data: any,
@@ -25,12 +25,6 @@ export const getAgencyById = async (agencyId: string): Promise<any> => {
   return getAgencyByIdRepository(agencyId);
 };
 
-export const addUserToAgency = async (
-  userId: string,
-  agencyId: string,
-): Promise<any> => {
-  return addUserToAgencyUseCase(userId, agencyId);
-};
 
 export const updateAgencyById = async (agencyId: string, agencyData: any) => {
   return updateAgency(agencyId, agencyData);

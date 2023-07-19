@@ -29,7 +29,7 @@ export const get = async (req: Request, res: Response) => {
 
 export const getId = async (req: Request, res: Response) => {
   try {
-    const userId = req.params.id;
+    const userId = (req as any).user.id;
     const user = await userService.getUserById(userId);
 
     if (!user) {
@@ -42,26 +42,14 @@ export const getId = async (req: Request, res: Response) => {
     res.status(400).json({ error: "Failed to fetch user" });
   }
 };
-export const getUser = async (req: Request, res: Response) => {
-  try {
-    const userId = req.params.id;
-    const user = await userService.getUserById(userId);
 
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
-    }
-
-    res.status(200).json(user);
-  } catch (e) {
-    console.error("Error in fetching user by ID:", e);
-    res.status(400).json({ error: "Failed to fetch user" });
-  }
-};
 
 export const update = async (req: Request, res: Response) => {
   try {
-    const userId = req.params.id;
+    const userId = (req as any).user.id;
     const userData = req.body;
+    
+    console.log((req as any).user)
 
     const user = await userService.updateUserById(userId, userData);
 
@@ -76,21 +64,11 @@ export const update = async (req: Request, res: Response) => {
   }
 };
 
-export const addAgency = async (req: Request, res: Response) => {
-  try {
-    const agency = req.body.agencies.connect.id;
-    const user = await userService.addUserAgency(req.params.id, agency);
-    res.status(200).send(user);
-  } catch (e: any) {
-    res.status(400).json({
-      message: e.message,
-    });
-  }
-};
+
 
 export const remove = async (req: Request, res: Response) => {
   try {
-    const userId = req.params.id;
+    const userId = (req as any).user;
     await userService.removeUserById(userId);
 
     res.status(200).json({ message: "User removed successfully" });

@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-  addAgency,
   create,
   get,
   getId,
@@ -15,12 +14,15 @@ const userRoutes = () => {
 
   router.post("/", create);
 
-  router.use(verifyToken, adminMiddleware);
+  
+  router.use(verifyToken);
+
+  router.put("/update", update);
+  router.get("/me", getId);
+  
+  router.use(adminMiddleware)
+  router.delete("/delete", remove);
   router.get("/", get);
-  router.get("/:id", getId);
-  router.put("/:id", update);
-  router.put("/add-agency/:id", addAgency);
-  router.delete("/:id", remove);
 
   return router;
 };

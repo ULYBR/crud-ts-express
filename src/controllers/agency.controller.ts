@@ -51,20 +51,6 @@ export const getId = async (req: Request, res: Response) => {
   }
 };
 
-export const addUser = async (req: Request, res: Response) => {
-  try {
-    const data = req.body;
-    const userId = data.users.connect.id;
-    const agencyId = req.params.id;
-
-    const agency = await agencyService.addUserToAgency(userId, agencyId);
-    res.status(200).json(agency);
-  } catch (e: any) {
-    res.status(400).json({
-      message: e.message,
-    });
-  }
-};
 
 export const update = async (req: Request, res: Response) => {
   try {

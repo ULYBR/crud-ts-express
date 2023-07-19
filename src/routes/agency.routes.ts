@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-  addUser,
   create,
   get,
   getId,
@@ -18,7 +17,6 @@ const agencyRoutes = () => {
   router.get("/", get);
   router.get("/:id", getId);
   router.put("/:id", update);
-  router.put("/add-user/:id", addUser);
   router.delete("/:id", remove);
 
   return router;
