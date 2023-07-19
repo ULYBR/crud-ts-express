@@ -16,11 +16,11 @@ export const addUserToAgency = async (
 
   if (!agency) throw new Error("Agency not found⛔");
 
-  const HasUserInAngency = agency.users.some((user) => user.id === userId);
+  const HasUserInAgency = agency.users.some((user) => user.id === userId);
 
-  if (HasUserInAngency) {
+  if (HasUserInAgency) {
     throw new Error("User already registered in the agency⛔");
-  } else if (!HasUserInAngency) {
+  } else if (!HasUserInAgency) {
     const updatedAgency = await prisma.agency.update({
       where: {
         id: agencyId,

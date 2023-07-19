@@ -1,7 +1,11 @@
-import { Application } from "express";
+import { Router } from "express";
 import { authenticate } from "../controllers/auth.controller";
 
-const authRoutes = async (app: Application) => {
-  app.post("/auth/login", authenticate);
+const authRoutes = () => {
+  const router = Router();
+  router.use(authenticate);
+
+  router.post("/");
+  return router;
 };
 export default authRoutes;

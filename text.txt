@@ -1,0 +1,9 @@
+ User{
+	"email": "teste12@gmail.com",
+	"password": "AhfiTqZPyTChW2BD3^kS88&C"
+}
+
+Admin {
+	"email": "admin@gmail.com",
+	"password": "nJWmSR4jyT39XC8r*sy$BmZ3"
+}

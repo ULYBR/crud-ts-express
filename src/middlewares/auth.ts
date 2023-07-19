@@ -12,7 +12,12 @@ export const verifyToken = (
   }
   try {
     const extractedToken = token.replace("Bearer ", "");
-    jwt.verify(extractedToken, String(process.env.TOKEN_KEY));
+    const decoded: any = jwt.verify(
+      extractedToken,
+      String(process.env.TOKEN_KEY),
+    );
+    const { id, email, name, role } = decoded;
+    (req as any).user = { id, email, name, role };
     next();
   } catch (e) {
     res.status(401).send({ message: "Invalid token ⛔" });

@@ -5,10 +5,10 @@ import agencyRoutes from "./agency.routes";
 import clientRoutes from "./client.routes";
 
 const routes = (app: Application) => {
-  userRoutes(app);
-  authRoutes(app);
-  agencyRoutes(app);
-  clientRoutes(app);
+  app.use("/users", userRoutes());
+  app.use("/auth", authRoutes());
+  app.use("/agencies", agencyRoutes());
+  app.use("/clients", clientRoutes());
 };
 
 export default routes;

@@ -1,4 +1,4 @@
-import { Application } from "express";
+import { Router } from "express";
 import {
   addUser,
   create,
@@ -8,14 +8,20 @@ import {
   update,
 } from "../controllers/agency.controller";
 import { verifyToken } from "../middlewares/auth";
+import { adminMiddleware } from "../middlewares/admin";
 
-const agencyRoutes = (app: Application) => {
-  app.post("/agencies", create);
-  app.get("/agencies", verifyToken, get);
-  app.get("/agencies/:id", verifyToken, getId);
-  app.put("/agencies/:id", verifyToken, update);
-  app.put("/agencies/add-user/:id", verifyToken, addUser);
-  app.delete("/agencies/:id", verifyToken, remove);
+const agencyRoutes = () => {
+  const router = Router();
+  router.use(verifyToken, adminMiddleware);
+
+  router.post("/", create);
+  router.get("/", get);
+  router.get("/:id", getId);
+  router.put("/:id", update);
+  router.put("/add-user/:id", addUser);
+  router.delete("/:id", remove);
+
+  return router;
 };
 
 export default agencyRoutes;
