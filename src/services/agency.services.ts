@@ -7,7 +7,6 @@ import {
   deleteAgency,
 } from "../repositories/agency.repository";
 
-
 export const createAgencyWithUserIdAndClientId = async (
   data: any,
   userId: string,
@@ -24,7 +23,6 @@ export const getAllAgencies = async (page: number, limit: number) => {
 export const getAgencyById = async (agencyId: string): Promise<any> => {
   return getAgencyByIdRepository(agencyId);
 };
-
 
 export const updateAgencyById = async (agencyId: string, agencyData: any) => {
   return updateAgency(agencyId, agencyData);

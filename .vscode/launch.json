@@ -5,12 +5,21 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug",
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
       "preLaunchTask": "tsc: build - tsconfig.json",
-      "program": "${workspaceFolder}/src/index.ts",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+      "runtimeArgs": ["start"],
+      "runtimeExecutable": "yarn",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Watch",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["dev"],
+      "runtimeExecutable": "yarn",
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }

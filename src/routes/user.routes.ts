@@ -14,13 +14,12 @@ const userRoutes = () => {
 
   router.post("/", create);
 
-  
   router.use(verifyToken);
 
   router.put("/update", update);
   router.get("/me", getId);
-  
-  router.use(adminMiddleware)
+
+  router.use(adminMiddleware);
   router.delete("/delete", remove);
   router.get("/", get);
 

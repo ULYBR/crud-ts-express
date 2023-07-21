@@ -51,7 +51,6 @@ export const getId = async (req: Request, res: Response) => {
   }
 };
 
-
 export const update = async (req: Request, res: Response) => {
   try {
     const agencyId = req.params.id;

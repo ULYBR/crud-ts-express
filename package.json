@@ -23,7 +23,8 @@
   "scripts": {
     "format": "prettier --write .",
     "build": "yarn install --force; rm -rf dist; tsc",
-    "dev": "nodemon ./src/index.ts"
+    "dev": "nodemon ./src/index.ts",
+    "start": "node dist/index.js "
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

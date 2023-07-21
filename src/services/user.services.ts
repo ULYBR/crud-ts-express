@@ -8,7 +8,6 @@ import {
   deleteUser,
 } from "../repositories/user.repository";
 
-
 export const createUserWithClientId = async (data: any, clientId: string) => {
   await userValidation.validate(data);
 
@@ -37,7 +36,6 @@ export const updateUserById = async (userId: string, userData: any) => {
 
   return updateUser(userId, userData);
 };
-
 
 export const removeUserById = async (userId: string) => {
   return deleteUser(userId);

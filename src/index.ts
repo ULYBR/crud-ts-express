@@ -11,5 +11,5 @@ app.use(cors());
 app.use(express.json());
 
 routes(app);
-app.listen(3001);
+app.listen(3000);
 console.log("serve on ✅");
