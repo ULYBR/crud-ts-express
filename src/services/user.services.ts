@@ -33,6 +33,9 @@ export const updateUserById = async (userId: string, userData: any) => {
     const hashPassword = await bcrypt.hash(userData.password, 10);
     userData.password = hashPassword;
   }
+  if (userData.role){
+    userData.role = "USER";
+  }
 
   return updateUser(userId, userData);
 };
