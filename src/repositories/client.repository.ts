@@ -21,6 +21,16 @@ export const createClient = async (data: Client, userId: string) => {
   return client;
 };
 
+export const getAllCustomer = async () =>{
+  const customers = await prisma.client.findMany({
+   select:{
+      name:true,
+    }
+    
+  });
+  return customers;
+
+};
 export const getAll = async (page: number, limit: number) => {
   const offset = (page - 1) * limit;
 

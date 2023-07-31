@@ -40,6 +40,15 @@ export const createAgency = async (
   });
   return agency;
 };
+export const getAllAgency = async () => {
+  const agencies = await prisma.agency.findMany({
+    select:{
+      name:true
+    }
+  });
+  return agencies;
+  
+}
 
 export const getAll = async (page: number, limit: number) => {
   const offset = (page - 1) * limit;

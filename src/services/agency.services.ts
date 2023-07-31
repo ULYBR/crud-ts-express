@@ -3,6 +3,7 @@ import {
   createAgency,
   getAll,
   getAgencyById as getAgencyByIdRepository,
+  getAllAgency,
   updateAgency,
   deleteAgency,
 } from "../repositories/agency.repository";
@@ -15,6 +16,10 @@ export const createAgencyWithUserIdAndClientId = async (
   await agencyValidation.validate(data);
   return createAgency(data, userId, clientId);
 };
+
+export const getAllPublic = async () => {
+  return  getAllAgency();
+}
 
 export const getAllAgencies = async (page: number, limit: number) => {
   return getAll(page, limit);
