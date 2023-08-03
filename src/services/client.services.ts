@@ -8,7 +8,6 @@ import {
   deleteClient,
 } from "../repositories/client.repository";
 
-
 export const createClientWithUserId = async (data: any, userId: string) => {
   await clientValidation.validate(data);
   return createClient(data, userId);
@@ -16,7 +15,7 @@ export const createClientWithUserId = async (data: any, userId: string) => {
 
 export const getAllCustomers = async () => {
   return getAllCustomer();
-} 
+};
 export const getAllClients = async (page: number, limit: number) => {
   return getAll(page, limit);
 };

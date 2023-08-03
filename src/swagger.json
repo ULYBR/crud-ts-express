@@ -1,0 +1,571 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Crud",
+    "description": "Documentation from Crud Api",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Client": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Example Client Name"
+          },
+          "agencyId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426655440000"
+          },
+          "Users": {
+            "type": "string",
+            "format": "uuid",
+            "example": "789e0123-e45f-67ab-cdef-012345678900"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "format": "Name",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "johndoe@example.com"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "example": "MySecretPassword123"
+          },
+          "agencyId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426655440000"
+          },
+          "customers": {
+            "name": "clientId",
+            "type": "string",
+            "format": "uuid",
+            "example": "456e7890-f123-45ab-cdef-678901234567"
+          }
+        }
+      },
+      "Agency": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Example Agency Name"
+          },
+          "cnpj": {
+            "type": "string",
+            "format": "CNPJ",
+            "example": "12.345.678/0001-90"
+          },
+          "users": {
+            "type": "string",
+            "format": "uuid",
+            "name": "userId",
+            "example": "789e0123-e45f-67ab-cdef-012345678900"
+          },
+          "Client": {
+            "type": "string",
+            "format": "uuid",
+            "name": "clientId",
+            "example": "456e7890-f123-45ab-cdef-678901234567"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/agencies": {
+      "get": {
+        "security": [{ "bearerAuth": [] }],
+        "tags": ["Agency"],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            },
+            "description": "Number of items per page"
+          }
+        ],
+        "summary": "Get all agencies",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Agency"],
+        "summary": "Create a new agency",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Agency"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        }
+      }
+    },
+    "/agencies/all": {
+      "get": {
+        "tags": ["Agency"],
+        "summary": "Get all public agencies",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        }
+      }
+    },
+    "/agencies/{agencyId}": {
+      "delete": {
+        "tags": ["Agency"],
+        "security": [{ "bearerAuth": [] }],
+        "summary": "Delete an agency by ID",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            },
+            "description": "Number of items per page"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Agency"],
+        "security": [{ "bearerAuth": [] }],
+        "summary": "Update an agency by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "agencyId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Agency"
+              },
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Updated Agency Name"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Authenticate user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "admin@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "fEK#mF%qwtEBveLc7"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "summary": "Get all users",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            },
+            "description": "Number of items per page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        }
+      },
+      "post": {
+        "tags": ["User"],
+        "summary": "Create a new user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/users/me": {
+      "get": {
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "summary": "Get a user by Token",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        }
+      },
+      "put": {
+        "tags": ["User"],
+        "summary": "Update a user by Token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["User"],
+        "summary": "Delete a user Auth",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/clients": {
+      "get": {
+        "tags": ["Client"],
+        "summary": "Get all clients",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            },
+            "description": "Number of items per page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": ["Client"],
+        "summary": "Create a new client",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/clients/all": {
+      "get": {
+        "tags": ["Client"],
+        "summary": "Get all clients Public",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/clients/{clientId}": {
+      "get": {
+        "tags": ["Client"],
+        "summary": "Get a client by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": ["Client"],
+        "summary": "Update a client by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": ["Client"],
+        "summary": "Delete a client by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Invalid token ⛔"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:3001"
+    }
+  ]
+}

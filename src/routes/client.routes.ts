@@ -3,7 +3,7 @@ import { verifyToken } from "../middlewares/auth";
 import {
   create,
   get,
-  getId,
+  getClientId,
   update,
   getAllCustomer,
   remove,
@@ -18,9 +18,9 @@ const clientRoutes = () => {
   router.get("/", get);
 
   router.post("/clients", create);
-  router.get("/clients/:id", getId);
-  router.put("/clients/:id", update);
-  router.delete("/clients/:id", remove);
+  router.get("/:id", getClientId);
+  router.put("/:id", update);
+  router.delete("/:id", remove);
 
   return router;
 };

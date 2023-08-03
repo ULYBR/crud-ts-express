@@ -42,13 +42,13 @@ export const createAgency = async (
 };
 export const getAllAgency = async () => {
   const agencies = await prisma.agency.findMany({
-    select:{
-      name:true
-    }
+    select: {
+      id: true,
+      name: true,
+    },
   });
   return agencies;
-  
-}
+};
 
 export const getAll = async (page: number, limit: number) => {
   const offset = (page - 1) * limit;

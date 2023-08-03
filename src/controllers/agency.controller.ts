@@ -34,20 +34,17 @@ export const get = async (req: Request, res: Response) => {
     res.status(400).json({ error: "Failed to fetch agencies" });
   }
 };
-export const getPublic = async(req:Request, res: Response) =>{
+export const getPublic = async (req: Request, res: Response) => {
   try {
-    const agencies = await agencyService.getAllPublic()
-    res.status(200).json(agencies)
-
+    const agencies = await agencyService.getAllPublic();
+    res.status(200).json(agencies);
   } catch (e) {
     console.error("Error find Agencies");
-    res.status(400).json({error: "failed to find agencies"});
-
-    
+    res.status(400).json({ error: "failed to find agencies" });
   }
-}
+};
 
-export const getId = async (req: Request, res: Response) => {
+export const getAgencyId = async (req: Request, res: Response) => {
   try {
     const agencyId = req.params.id;
     const agency = await agencyService.getAgencyById(agencyId);

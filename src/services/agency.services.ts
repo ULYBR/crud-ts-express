@@ -18,8 +18,8 @@ export const createAgencyWithUserIdAndClientId = async (
 };
 
 export const getAllPublic = async () => {
-  return  getAllAgency();
-}
+  return getAllAgency();
+};
 
 export const getAllAgencies = async (page: number, limit: number) => {
   return getAll(page, limit);

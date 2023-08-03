@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import * as clientService from "../services/client.services";
 
-
 export const create = async (req: Request, res: Response) => {
   try {
     const data = req.body;
@@ -16,16 +15,15 @@ export const create = async (req: Request, res: Response) => {
   }
 };
 
-export const getAllCustomer = async (req:Request,res: Response) => {
+export const getAllCustomer = async (req: Request, res: Response) => {
   try {
     const customers = await clientService.getAllCustomers();
     res.status(200).json(customers);
   } catch (e) {
-     console.error("Error in find customers",e);
-    res.status(400).json({error: "Filed to find customers"});
-    
+    console.error("Error in find customers", e);
+    res.status(400).json({ error: "Filed to find customers" });
   }
-}
+};
 
 export const get = async (req: Request, res: Response) => {
   try {
@@ -42,7 +40,7 @@ export const get = async (req: Request, res: Response) => {
   }
 };
 
-export const getId = async (req: Request, res: Response) => {
+export const getClientId = async (req: Request, res: Response) => {
   try {
     const clientId = req.params.id;
     const client = await clientService.getClientByIdService(clientId);

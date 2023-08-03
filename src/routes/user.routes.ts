@@ -16,7 +16,7 @@ const userRoutes = () => {
 
   router.use(verifyToken);
 
-  router.put("/update", update);
+  router.put("/me", update);
   router.get("/me", getId);
 
   router.use(adminMiddleware);
