@@ -67,6 +67,7 @@ export const getById = async (id: string) => {
       password: false,
       createdAt: true,
       updatedAt: true,
+      role: true,
       agency: true,
       customers: true,
     },
