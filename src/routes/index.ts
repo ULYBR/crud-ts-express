@@ -7,7 +7,7 @@ import swaggerUI from "swagger-ui-express";
 import swaggerDocument from "../swagger.json";
 
 const routes = (app: Application) => {
-  app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+  app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
   app.use("/users", userRoutes());
   app.use("/auth", authRoutes());
   app.use("/agencies", agencyRoutes());

@@ -1,5 +1,3 @@
-
-
 ---
 
 <h1 align="center">API REST using Node.js, Express, PostgreSQL, and Prisma</h1>
@@ -190,7 +188,7 @@ yarn install
 
 4. Crie um arquivo `.env` na raiz do projeto e defina as variáveis de ambiente necessárias. Aqui está um
 
- exemplo básico de configuração:
+exemplo básico de configuração:
 
 ```plaintext
 # Configuração do Ambiente
