@@ -7,38 +7,99 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  role      Role     @default(USER)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  agencyId  String
-  agency    Agency  @relation(fields: [agencyId], references: [id])
-  customers Client[]
+model Usuario {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  email       String    @unique
+  senha       String
+  role        UserRole  // Enum para representar o papel do usuário
+
+  empresa     Empresa   @relation(fields: [empresaId], references: [id])
+  empresaId   Int
+
+  checklists  Checklist[]
+  locadoras   Locadora[]
+
+  @@map("usuarios") // Nome da tabela no banco de dados
 }
 
-model Agency {
-  id        String   @id @default(uuid())
-  name      String
-  cnpj      String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  users     User[]
-  Client    Client[]
+// Enum para representar o papel do usuário
+enum UserRole {
+  ADMIN        // Administrador
+  GUEST        // Convidado
+  COLABORADOR  // Colaborador
 }
 
-model Client {
-  id       String @id @default(uuid())
-  name     String @unique
-  Users    User[]
-  agencyId String
-  agency   Agency @relation(fields: [agencyId], references: [id])
+model Empresa {
+  id                Int           @id @default(autoincrement())
+  razao_social      String
+  nome_fantasia     String
+  cnpj              String         @unique
+  inscricao_estadual String
+  telefone          String
+  endereco          String
+
+  colaboradores     Colaborador[]
+  usuarios          Usuario[]
+  veiculos          Veiculo[]
 }
 
-enum Role {
-  USER
-  ADMIN
+model Colaborador {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  cpf         String    @unique
+  telefone    String
+
+  empresa     Empresa   @relation(fields: [empresaId], references: [id])
+  empresaId   Int
+
+  veiculos    Veiculo[]
+  checklists  Checklist[]
+}
+
+model Veiculo {
+  id            Int       @id @default(autoincrement())
+  marca         String
+  modelo        String
+  cor           String
+  placa         String    @unique
+
+  empresa       Empresa   @relation(fields: [empresaId], references: [id])
+  empresaId     Int
+
+  locadora      Locadora? @relation(fields: [locadoraId], references: [id])
+  locadoraId    Int?
+
+  colaborador   Colaborador? @relation(fields: [colaboradorId], references: [id])
+  colaboradorId Int?
+
+  checklists    Checklist[]
+}
+
+model Checklist {
+  id                Int       @id @default(autoincrement())
+  tipo              String
+  data              DateTime
+  hora              DateTime
+  quilometragem     Float
+  nivel_combustivel String
+
+  veiculo           Veiculo   @relation(fields: [veiculoId], references: [id])
+  veiculoId         Int
+
+  colaborador       Colaborador @relation(fields: [colaboradorId], references: [id])
+  colaboradorId     Int
+
+  usuario           Usuario?   @relation(fields: [usuarioId], references: [id])
+  usuarioId         Int?
+}
+
+
+model Locadora {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  cnpj        String    @unique
+
+  veiculos    Veiculo[]
+  usuarios    Usuario[]
 }

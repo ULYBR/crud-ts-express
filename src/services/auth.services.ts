@@ -1,22 +1,26 @@
+// src/services/auth.service.ts
+
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { prisma } from "../services/services";
+import { PrismaClient } from "@prisma/client";
 import { authenticationSchema } from "../validations/auth.validation";
+
+const prisma = new PrismaClient();
 
 export const authenticateUser = async (email: string, password: string) => {
   await authenticationSchema.validate({ email, password });
 
-  const user = await prisma.user.findFirst({
+  const usuario = await prisma.usuario.findUnique({
     where: {
       email,
     },
   });
 
-  if (!user) {
+  if (!usuario) {
     throw new Error("Invalid email or password ⛔");
   }
 
-  const passwordMatch = await bcrypt.compare(password, user.password);
+  const passwordMatch = await bcrypt.compare(password, usuario.senha);
 
   if (!passwordMatch) {
     throw new Error("Invalid email or password ⛔");
@@ -24,15 +28,15 @@ export const authenticateUser = async (email: string, password: string) => {
 
   const token = jwt.sign(
     {
-      id: user.id,
-      email,
-      name: user.name,
-      role: user.role,
+      id: usuario.id,
+      email: usuario.email,
+      nome: usuario.nome, // Ajuste conforme o seu modelo de usuário
+      role: usuario.role, // Ajuste conforme o seu modelo de usuário
     },
     String(process.env.TOKEN_KEY),
     {
       expiresIn: "6h",
-    },
+    }
   );
 
   return token;
