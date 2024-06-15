@@ -32,8 +32,10 @@ export async function getUsuarioById(req: Request, res: Response): Promise<void>
 export async function createUsuario(req: Request, res: Response): Promise<void> {
   const data = req.body;
   try {
-    const novoUsuario = await usuarioService.createUsuario(data); // Chame o método correspondente do serviço
+    const novoUsuario = await usuarioService.createUsuario(data);
+    console.log(data) // Chame o método correspondente do serviço
     res.status(201).json(novoUsuario);
+
   } catch (e) {
     res.status(500).send(e);
   }
