@@ -1,7 +1,7 @@
 // src/validations/usuario.validation.ts
 
 import * as yup from 'yup';
-import { Usuario } from '@prisma/client';
+
 
 const createUsuario = yup.object().shape({
   nome: yup.string().required(),

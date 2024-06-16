@@ -30,7 +30,7 @@ export const createColaborador = async (req: Request, res: Response) => {
   try {
     const novoColaborador = await colaboradorService.createColaborador(data);
     res.status(201).json(novoColaborador);
-  } catch (error: any) { // Alteração aqui para capturar o erro como 'any'
+  } catch (error: any) {
     res.status(500).send(error.message || error);
   }
 };
@@ -45,7 +45,7 @@ export const updateColaborador = async (req: Request, res: Response) => {
       return;
     }
     res.status(200).json(colaboradorAtualizado);
-  } catch (error: any) { // Alteração aqui para capturar o erro como 'any'
+  } catch (error: any) {
     res.status(500).send(error.message || error);
   }
 };
@@ -55,7 +55,7 @@ export const deleteColaborador = async (req: Request, res: Response) => {
   try {
     await colaboradorService.deleteColaborador(id);
     res.status(204).send();
-  } catch (error: any) { // Alteração aqui para capturar o erro como 'any'
+  } catch (error: any) {
     res.status(500).send(error.message || error);
   }
 };
