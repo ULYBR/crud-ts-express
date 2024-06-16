@@ -3,7 +3,6 @@
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import * as veiculoService from '../services/veiculo.service';
-import { validateVeiculo, validateVeiculoId } from '../validations/veiculo.validation';
 
 export const getAllVeiculos = async (req: Request, res: Response) => {
   try {

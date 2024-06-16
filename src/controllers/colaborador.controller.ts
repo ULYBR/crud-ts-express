@@ -6,7 +6,7 @@ export const getAllColaboradores = async (req: Request, res: Response) => {
   try {
     const colaboradores = await colaboradorService.getAllColaboradores();
     res.status(200).json(colaboradores);
-  } catch (error: any) { // Alteração aqui para capturar o erro como 'any'
+  } catch (error: any) {
     res.status(500).send(error.message || error);
   }
 };

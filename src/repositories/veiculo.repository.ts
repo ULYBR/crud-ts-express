@@ -1,8 +1,8 @@
 // src/repositories/veiculo.repository.ts
 
-import { PrismaClient, Veiculo } from '@prisma/client';
+import { Veiculo } from '@prisma/client';
 
-const prisma = new PrismaClient();
+import { prisma } from '../services/services';
 
 export default {
   async findAll(): Promise<Veiculo[]> {
