@@ -2,10 +2,10 @@
 
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { PrismaClient } from "@prisma/client";
+
 import { authenticationSchema } from "../validations/auth.validation";
 
-const prisma = new PrismaClient();
+import { prisma } from './services';
 
 export const authenticateUser = async (email: string, password: string) => {
   await authenticationSchema.validate({ email, password });

@@ -1,8 +1,8 @@
 // src/services/usuario.service.ts
 
-import { PrismaClient, Usuario } from '@prisma/client';
+import { Usuario } from '@prisma/client';
 
-const prisma = new PrismaClient();
+import { prisma } from './services';
 
 export async function getAllUsuarios(): Promise<Usuario[]> {
   const usuarios = await prisma.usuario.findMany(); 

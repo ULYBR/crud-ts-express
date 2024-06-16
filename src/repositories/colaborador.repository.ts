@@ -1,6 +1,6 @@
-import { PrismaClient, Colaborador } from '@prisma/client';
+import { Colaborador } from '@prisma/client';
 
-const prisma = new PrismaClient();
+import { prisma } from '../services/services';
 
 export async function getAllColaboradores(): Promise<Colaborador[]> {
   return prisma.colaborador.findMany();

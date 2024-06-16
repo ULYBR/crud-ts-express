@@ -1,7 +1,7 @@
 // src/repositories/empresaRepository.ts
-import { PrismaClient, Empresa } from '@prisma/client';
+import { Empresa } from '@prisma/client';
 
-const prisma = new PrismaClient();
+import { prisma } from '../services/services';
 
 export async function getAllEmpresas(): Promise<Empresa[]> {
   return prisma.empresa.findMany();
