@@ -5,6 +5,7 @@ import usuarioRoutes from "./usuario.routes";
 import colaboradorRouter from "./colaborador.routes";
 import veiculoRouter from "./veiculo.router";
 import locadoraRouter from "./locadora.routes";
+import checklistRouter from "./checklist.routes";
 
 const routes = (app: Application) => {
   app.use("/api",usuarioRoutes());
@@ -13,6 +14,7 @@ const routes = (app: Application) => {
   app.use("/api", colaboradorRouter());
   app.use("/api", veiculoRouter());
   app.use("/api", locadoraRouter());
+  app.use("/api", checklistRouter())
 
 };
 
